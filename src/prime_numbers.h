@@ -1,8 +1,13 @@
-#include <stdlib.h>
-
 int isPrime(long long num)
 {
-  for (int i = 2; num % i && i <= num; i++)
+  if (!(num % 2))
+  {
+    if (num == 2)
+      return 1;
+    else
+      return 0;
+  }
+  for (int i = 3; num % i && i <= num; i += 2)
   {
     if (i * i > num)
       return 1;
