@@ -1,11 +1,14 @@
-unsigned gcd(unsigned x, unsigned y)
+#include <math.h>
+
+int gcd(int x, int y)
 {
-  unsigned remainder = x % y;
+  int result, remainder = x % y;
   while (remainder)
   {
     x = y;
     y = remainder;
     remainder = x % y;
   }
-  return y;
+  result = abs(y);
+  return result;
 }

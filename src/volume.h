@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "area.h"
 
+#define PI 3.141592653589793
+
 double cubeVolume(double side)
 {
   if (side < 0)
