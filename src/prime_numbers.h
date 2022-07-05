@@ -1,16 +1,18 @@
-int isPrime(long long num)
+#include <stdbool.h>
+
+bool isPrime(long long num)
 {
   if (!(num % 2))
   {
     if (num == 2)
-      return 1;
+      return true;
     else
-      return 0;
+      return false;
   }
   for (int i = 3; num % i && i <= num; i += 2)
   {
     if (i * i > num)
-      return 1;
+      return true;
   }
-  return 0;
+  return false;
 }

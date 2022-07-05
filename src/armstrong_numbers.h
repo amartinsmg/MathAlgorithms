@@ -1,6 +1,7 @@
+#include <stdbool.h>
 #include <math.h>
 
-int isArmstrong(long long num)
+bool isArmstrong(long long num)
 {
   int k = floor(log10(num)) + 1;
   long long n = num,
@@ -11,6 +12,6 @@ int isArmstrong(long long num)
     n /= 10;
   }
   if (sum == num)
-    return 1;
-  return 0;
+    return true;
+  return false;
 }
