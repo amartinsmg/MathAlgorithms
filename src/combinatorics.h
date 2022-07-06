@@ -1,30 +1,58 @@
 #include <assert.h>
-#include "./factorial.h"
+#include "factorial.h"
 
-double permutation(int n)
+long long permutation(int n)
 {
   assert(n > 0);
-  double result = factorial(n);
+  long long result = factorial(n);
   return result;
 }
 
-double cyclePermutation(int n)
+long long cyclePermutation(int n)
 {
   assert(n > 0);
-  double result = factorial(n - 1);
+  long long result = factorial(n - 1);
   return result;
 }
 
-double arrangement(int n, int p)
+long long arrangement(int n, int p)
 {
   assert(n > 0 && p >= 0);
-  double result = factorial(n) / factorial(n - p);
+  long long result = factorial(n) / factorial(n - p);
   return result;
 }
 
-double combination(int n, int p)
+long long combination(int n, int p)
 {
   assert(n > 0 && p >= 0 && p <= n);
-  double result = factorial(n) / (factorial(p) * factorial(n - p));
+  long long result = factorial(n) / (factorial(p) * factorial(n - p));
+  return result;
+}
+
+double permutationlf(int n)
+{
+  assert(n > 0);
+  double result = factoriallf(n);
+  return result;
+}
+
+double cyclePermutationlf(int n)
+{
+  assert(n > 0);
+  double result = factoriallf(n - 1);
+  return result;
+}
+
+double arrangementlf(int n, int p)
+{
+  assert(n > 0 && p >= 0);
+  double result = factoriallf(n) / factoriallf(n - p);
+  return result;
+}
+
+double combinationlf(int n, int p)
+{
+  assert(n > 0 && p >= 0 && p <= n);
+  double result = factoriallf(n) / (factoriallf(p) * factoriallf(n - p));
   return result;
 }
