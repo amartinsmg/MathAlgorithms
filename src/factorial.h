@@ -1,7 +1,10 @@
-long long factorial(unsigned num)
+#include <assert.h>
+
+double factorial(int num)
 {
-  long long result = 1;
-  for (unsigned i = 1; i <= num; i++)
+  assert(num >= 0);
+  double result = 1;
+  for (int i = 1; i <= num; i++)
     result *= i;
   return result;
 }
