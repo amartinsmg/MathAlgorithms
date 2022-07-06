@@ -20,6 +20,6 @@ double compoundedGrowth(double initial, double rate, double interval)
 
 double compoundedGrowthRate(double initial, double final, double interval)
 {
-  double result = pow((final / initial), (1 / interval));
+  double result = pow((final / initial), (1 / interval)) - 1;
   return result;
 }
