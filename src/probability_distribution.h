@@ -4,23 +4,25 @@
 
 #define PI 3.141592653589793
 
-double binominal(int n, int x, double p)
+double binominal(int trials, int success, double success_prob)
 {
-  assert(n > 0 && x >= 0 && p >= 0 && p <= 1);
-  double probability = combinationlf(n, x) * pow(p, x) * pow((1 - p), (n - x));
+  assert(trials > 0 && success >= 0 && success_prob >= 0 && success_prob <= 1);
+  double probability = combinationlf(trials, success) *
+                       pow(success_prob, success) *
+                       pow((1 - success_prob), (trials - success));
   return probability;
 }
 
-double poisson(double lambda, int k)
+double poisson(int x, double mean)
 {
-  assert(k >= 0);
-  double probability = exp(-lambda) * pow(lambda, k) / factoriallf(k);
+  assert(x >= 0);
+  double probability = exp(-mean) * pow(mean, x) / factoriallf(x);
   return probability;
 }
 
-double gaussianCDF(double x, double mu, double sigma)
+double gaussianCDF(double x, double mean, double standadDev)
 {
-  double z = (x - mu) / sigma,
+  double z = (x - mean) / standadDev,
          phi = exp(-pow(z, 2) / 2) / sqrt(2 * PI),
          sum = 0,
          denominator = 1,

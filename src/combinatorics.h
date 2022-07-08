@@ -1,58 +1,58 @@
 #include <assert.h>
 #include "factorial.h"
 
-long long permutation(int n)
+long long permutation(int num)
 {
-  assert(n > 0);
-  long long result = factorial(n);
+  assert(num > 0);
+  long long result = factorial(num);
   return result;
 }
 
-long long cyclePermutation(int n)
+long long cyclePermutation(int num)
 {
-  assert(n > 0);
-  long long result = factorial(n - 1);
+  assert(num > 0);
+  long long result = factorial(num - 1);
   return result;
 }
 
-long long arrangement(int n, int p)
+long long arrangement(int total, int selected)
 {
-  assert(n > 0 && p >= 0);
-  long long result = factorial(n) / factorial(n - p);
+  assert(total > 0 && selected >= 0);
+  long long result = factorial(total) / factorial(total - selected);
   return result;
 }
 
-long long combination(int n, int p)
+long long combination(int total, int selected)
 {
-  assert(n > 0 && p >= 0 && p <= n);
-  long long result = factorial(n) / (factorial(p) * factorial(n - p));
+  assert(total > 0 && selected >= 0 && selected <= total);
+  long long result = factorial(total) / (factorial(selected) * factorial(total - selected));
   return result;
 }
 
-double permutationlf(int n)
+double permutationlf(int num)
 {
-  assert(n > 0);
-  double result = factoriallf(n);
+  assert(num > 0);
+  double result = factorial(num);
   return result;
 }
 
-double cyclePermutationlf(int n)
+double cyclePermutationlf(int num)
 {
-  assert(n > 0);
-  double result = factoriallf(n - 1);
+  assert(num > 0);
+  double result = factorial(num - 1);
   return result;
 }
 
-double arrangementlf(int n, int p)
+double arrangementlf(int total, int selected)
 {
-  assert(n > 0 && p >= 0);
-  double result = factoriallf(n) / factoriallf(n - p);
+  assert(total > 0 && selected >= 0);
+  double result = factorial(total) / factorial(total - selected);
   return result;
 }
 
-double combinationlf(int n, int p)
+double combinationlf(int total, int selected)
 {
-  assert(n > 0 && p >= 0 && p <= n);
-  double result = factoriallf(n) / (factoriallf(p) * factoriallf(n - p));
+  assert(total > 0 && selected >= 0 && selected <= total);
+  double result = factorial(total) / (factorial(selected) * factorial(total - selected));
   return result;
 }
