@@ -118,6 +118,15 @@ int main()
   assert(roundTo(sphereArea(4), 6) == 201.06193);
   assert(roundTo(cylinderArea(2, 5.5), 6) == 94.24778);
   assert(roundTo(coneArea(4, 6), 6) == 140.88287);
+  assert(cubeVolume(4) == 64);
+  assert(cuboidVolume(4, 5, 6) == 120);
+  assert(round(prismVolume(16, 5)) == 80);
+  assert(round(regularPrismVolume(4, 4, 5)) == 80);
+  assert(round(pyramidVolume(9, 4)) == 12);
+  assert(round(regularPyramidVolume(3, 4, 4)) == 12);
+  assert(roundTo(sphereVolume(4), 6) == 268.082573);
+  assert(roundTo(cylinderVolume(2, 5.5), 6) == 69.115038);
+  assert(roundTo(coneVolume(4, 6), 6) == 	100.530965);
 
   // printf("%f\n", coneArea(4, 6));
 
