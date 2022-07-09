@@ -12,14 +12,14 @@ double cubeVolume(double side)
 
 double cuboidVolume(double length, double width, double height)
 {
-  assert(width >= 0 || length >= 0 || height >= 0);
+  assert(width >= 0 && length >= 0 && height >= 0);
   double volume = length * width * height;
   return volume;
 }
 
 double primsVolume(double baseArea, double height)
 {
-  assert(baseArea >= 0 || height >= 0);
+  assert(baseArea >= 0 && height >= 0);
   double volume = baseArea * height;
   return volume;
 }
@@ -32,7 +32,7 @@ double regularPrismVolume(double baseSide, int nOfBaseSides, double height)
 
 double pyramidVolume(double baseArea, double height)
 {
-  assert(baseArea >= 0 || height >= 0);
+  assert(baseArea >= 0 && height >= 0);
   double volume = baseArea * height / 3;
   return volume;
 }
@@ -52,14 +52,14 @@ double sphereVolume(double radius)
 
 double coneVolume(double baseRadius, double height)
 {
-  assert(baseRadius >= 0 || height >= 0);
+  assert(baseRadius >= 0 && height >= 0);
   double volume = circleArea(baseRadius) * height / 3;
   return volume;
 }
 
 double circularCylinder(double baseRadius, double height)
 {
-  assert(baseRadius >= 0 || height >= 0);
+  assert(baseRadius >= 0 && height >= 0);
   double volume = circleArea(baseRadius) * height;
   return volume;
 }
