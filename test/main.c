@@ -13,7 +13,6 @@
 #include "prime_numbers.h"
 #include "probability_distribution.h"
 #include "statistical_measure.h"
-#include "trigonometry.h"
 
 double roundTo(double num, unsigned decimalPlaces)
 {
@@ -94,12 +93,13 @@ int main()
   assert(hypotenusePythagorean(3, 4) == 5);
   assert(roundTo(sideByPythagorean(4, 2), 6) == 3.464102);
   assert(roundTo(sideByLawOfCos(4, 3, degrees2radians(60)), 6) == 3.605551);
-  assert((radians2degrees(angleByLawOfCos(2, 4, 3.464102))) == 30);
+  assert(round(radians2degrees(angleByLawOfCos(2, 4, 3.464102))) == 30);
   assert(roundTo(sideByLawOfSin(degrees2radians(60), 4, degrees2radians(45)), 6) == 4.898979);
   assert(round(radians2degrees(angleByLawOfSin(4, 4, degrees2radians(45)))) == 45);
   assert(distanceBetweenPoits(-1, -1, 2, 3) == 5);
+  assert(roundTo(regularPyramidArea(3, 4, 4), 6) == 34.632011);
 
-  // printf("%f\n", radians2degrees(angleByLawOfCos(2, 4, 3.464102)));
+  // printf("%f\n", regularPyramidArea(3, 4, 4));
 
   printf("Passed all tests successfully!\n");
 
