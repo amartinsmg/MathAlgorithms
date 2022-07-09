@@ -97,9 +97,29 @@ int main()
   assert(roundTo(sideByLawOfSin(degrees2radians(60), 4, degrees2radians(45)), 6) == 4.898979);
   assert(round(radians2degrees(angleByLawOfSin(4, 4, degrees2radians(45)))) == 45);
   assert(distanceBetweenPoits(-1, -1, 2, 3) == 5);
+  assert(squareArea(4) == 16);
+  assert(retangleArea(4, 6) == 24);
+  assert(roundTo(regularPoligonArea(5, 6), 4) == 64.9519);
+  assert(triangleBaseHeightArea(4, 5) == 10);
+  assert(triangleABCArea(3, 4, 5) == 6);
+  assert(roundTo(triangleABGamaArea(2, 4, degrees2radians(60)), 4) == 3.4641);
+  assert(parallelogramArea(3, 5) == 15);
+  assert(rhombusArea(4, 6) == 12);
+  assert(roundTo(circleArea(4), 6) == 50.265482);
+  assert(roundTo(circularSectorAngleArea(degrees2radians(45), 4), 6) == 6.283185);
+  assert(circulaSectorArcArea(6, 4) == 12);
+  assert(roundTo(ellipseArea(4, 6), 6) == 75.398224);
+  assert(cubeArea(4) == 96);
+  assert(cuboidArea(4, 5, 6) == 148);
+  assert(prismArea(16, 16, 5) == 112);
+  assert(regularPrismArea(4, 4, 5) == 112);
+  assert(roundTo(pyramidArea(9, 12, 4.2720018), 6) == 34.632011);
   assert(roundTo(regularPyramidArea(3, 4, 4), 6) == 34.632011);
+  assert(roundTo(sphereArea(4), 6) == 201.06193);
+  assert(roundTo(cylinderArea(2, 5.5), 6) == 94.24778);
+  assert(roundTo(coneArea(4, 6), 6) == 140.88287);
 
-  // printf("%f\n", regularPyramidArea(3, 4, 4));
+  // printf("%f\n", coneArea(4, 6));
 
   printf("Passed all tests successfully!\n");
 

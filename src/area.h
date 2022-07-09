@@ -159,6 +159,6 @@ double cylinderArea(double baseRadius, double height)
 double coneArea(double baseRadius, double height)
 {
   assert(baseRadius >= 0 && height >= 0);
-  double area = PI * baseRadius * (baseRadius + height);
+  double area = circleArea(baseRadius) + PI * baseRadius * hypotenusePythagorean(height, baseRadius);
   return area;
 }
