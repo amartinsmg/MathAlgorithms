@@ -1,4 +1,5 @@
 #include <math.h>
+#include "basic_operations.h"
 
 double mean(double *values, int length)
 {
@@ -30,7 +31,7 @@ double geometricMean(double *values, int length)
          result;
   for (int i = 0; i < length; i++)
     product *= values[i];
-  result = pow(product, (1 / length));
+  result = nthRoot(product, length);
   return result;
 }
 

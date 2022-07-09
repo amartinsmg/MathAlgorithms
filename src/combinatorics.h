@@ -32,27 +32,27 @@ long long combination(int total, int selected)
 double permutationlf(int num)
 {
   assert(num > 0);
-  double result = factorial(num);
+  double result = factoriallf(num);
   return result;
 }
 
 double cyclePermutationlf(int num)
 {
   assert(num > 0);
-  double result = factorial(num - 1);
+  double result = factoriallf(num - 1);
   return result;
 }
 
 double arrangementlf(int total, int selected)
 {
   assert(total > 0 && selected >= 0);
-  double result = factorial(total) / factorial(total - selected);
+  double result = factoriallf(total) / factoriallf(total - selected);
   return result;
 }
 
 double combinationlf(int total, int selected)
 {
   assert(total > 0 && selected >= 0 && selected <= total);
-  double result = factorial(total) / (factorial(selected) * factorial(total - selected));
+  double result = factoriallf(total) / (factoriallf(selected) * factoriallf(total - selected));
   return result;
 }
