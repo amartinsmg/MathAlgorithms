@@ -18,7 +18,7 @@ double retangleArea(double width, double length)
   return area;
 }
 
-double regularPoligonArea(double side, int nOfSides)
+double regularPolygonArea(double side, int nOfSides)
 {
   assert(side > 0);
   double apothen = side / (2 * tan(PI / nOfSides)),
@@ -121,7 +121,7 @@ double prismArea(double baseArea, double basePerimeter, double height)
 
 double regularPrismArea(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regularPoligonArea(baseSide, nOfBaseSides),
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides;
   return prismArea(baseArea, basePerimeter, height);
 }
@@ -135,7 +135,7 @@ double pyramidArea(double baseArea, double basePerimeter, double slantHeight)
 
 double regularPyramidArea(double baseSide, int nOfBaseSides, double heigth)
 {
-  double baseArea = regularPoligonArea(baseSide, nOfBaseSides),
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides,
          apothen = baseSide / (2 * tan(PI / nOfBaseSides)),
          slantHeight = hypotenusePythagorean(apothen, heigth);

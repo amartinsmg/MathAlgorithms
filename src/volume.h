@@ -26,7 +26,7 @@ double prismVolume(double baseArea, double height)
 
 double regularPrismVolume(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regularPoligonArea(baseSide, nOfBaseSides);
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides);
   return prismVolume(baseArea, height);
 }
 
@@ -39,7 +39,7 @@ double pyramidVolume(double baseArea, double height)
 
 double regularPyramidVolume(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regularPoligonArea(baseSide, nOfBaseSides);
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides);
   return pyramidVolume(baseArea, height);
 }
 

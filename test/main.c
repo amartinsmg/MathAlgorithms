@@ -12,7 +12,6 @@
 #include "prime_factorization.h"
 #include "prime_numbers.h"
 #include "probability_distribution.h"
-#include "statistical_measure.h"
 
 double roundTo(double num, unsigned decimalPlaces)
 {
@@ -27,7 +26,8 @@ int main()
   long long *array1 = (long long *)calloc(sizeof(long long), 64),
             *array2 = primeFactors(7920);
   double *array3 = (double *)calloc(sizeof(double), 8),
-         **array4 = (double **)malloc(sizeof(double) * 8);
+         **array4 = (double **)malloc(sizeof(double) * 8),
+         *array5 = equationOfLine(1, 1, 2, 4);
   for (i = 0; i < 8; i++)
     array4[i] = (double *)malloc(sizeof(double) * 2);
   array1[0] = array3[0] = array4[0][0] = array4[7][1] = 2;
@@ -52,6 +52,10 @@ int main()
   free(array3);
   assert(roundTo(weightedMean(array4, 8), 6) == 2.933333);
   free(array4);
+  assert(array5[0] == 3 && array5[1] == -2);
+  array5 = midpointPoints(1, 1, 2, 4);
+  assert(array5[0] == 1.5 && array5[1] == 2.5);
+  free(array5);
 
   assert(isPrime(7919));
   assert(!isPrime(5329));
@@ -63,6 +67,7 @@ int main()
   assert(!isArmstrong(125));
   assert(nthRoot(4096, 4) == 8);
   assert(logarithm(1024, 4) == 5);
+  assert(absf(-4) == 4);
   assert(nPercentOfX(725, 5) == 36.25);
   assert(nIsWhatPercentOfX(95, 7.6) == 8);
   assert(simpleGrowth(5, 0.05, 3) == 5.75);
@@ -96,10 +101,18 @@ int main()
   assert(round(radians2degrees(angleByLawOfCos(2, 4, 3.464102))) == 30);
   assert(roundTo(sideByLawOfSin(degrees2radians(60), 4, degrees2radians(45)), 6) == 4.898979);
   assert(round(radians2degrees(angleByLawOfSin(4, 4, degrees2radians(45)))) == 45);
-  assert(distanceBetweenPoits(-1, -1, 2, 3) == 5);
+  assert(distancePoints(-1, -1, 2, 3) == 5);
+  assert(roundTo(distancePointLine(3, -2, 0, 0), 6) == 0.632456);
+  assert(slopeOfLine(1, 1, 2, 4) == 3);
+  assert(roundTo(radians2degrees(angleOfInclineLine(1, 1, 2, 4)), 6) == 71.565051);
+  assert(roundTo(circlePerimeter(5), 6) == 31.415927);
+  assert(round(radians2degrees(regularPolygonSumInteAngles(5))) == 540);
+  assert(round(radians2degrees(regularPolygonInteriorAngle(5))) == 108);
+  assert(round(radians2degrees(regularPolygonExteriorAngle(5))) == 72);
+  assert(nOfDiagnonalsPolygon(6) == 9);
   assert(squareArea(4) == 16);
   assert(retangleArea(4, 6) == 24);
-  assert(roundTo(regularPoligonArea(5, 6), 4) == 64.9519);
+  assert(roundTo(regularPolygonArea(5, 6), 4) == 64.9519);
   assert(triangleBaseHeightArea(4, 5) == 10);
   assert(triangleABCArea(3, 4, 5) == 6);
   assert(roundTo(triangleABGamaArea(2, 4, degrees2radians(60)), 4) == 3.4641);
@@ -126,9 +139,7 @@ int main()
   assert(round(regularPyramidVolume(3, 4, 4)) == 12);
   assert(roundTo(sphereVolume(4), 6) == 268.082573);
   assert(roundTo(cylinderVolume(2, 5.5), 6) == 69.115038);
-  assert(roundTo(coneVolume(4, 6), 6) == 	100.530965);
-
-  // printf("%f\n", coneArea(4, 6));
+  assert(roundTo(coneVolume(4, 6), 6) == 100.530965);
 
   printf("Passed all tests successfully!\n");
 
