@@ -1,6 +1,13 @@
 #include <assert.h>
 #include "factorial.h"
 
+/* The functions permutation(), cyclepermutation(), arrangement()
+  and combination() work well for numbers <= 20, for numbers > 20
+  use the functions permutationlf(), cyclepermutationlf(),
+  arrangementlf() and combinationlf() that use double precision
+  float to store the result, allowing numbers grether than
+  9223372036854776000 to be represented using exponential form */
+
 long long permutation(int num)
 {
   assert(num > 0);
