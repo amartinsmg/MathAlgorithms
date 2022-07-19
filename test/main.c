@@ -23,24 +23,17 @@ int main()
 {
   char str[100];
   int i;
-  long long *array1 = (long long *)calloc(sizeof(long long), 64),
+  long long array1[8] = {2, 2, 2, 2, 3, 3, 5, 11},
             *array2 = primeFactors(7920);
   double *array3 = (double *)calloc(sizeof(double), 8),
          **array4 = (double **)malloc(sizeof(double) * 8),
          *array5 = equationOfLine(1, 1, 2, 4);
   for (i = 0; i < 8; i++)
     array4[i] = (double *)malloc(sizeof(double) * 2);
-  array1[0] = array3[0] = array4[0][0] = array4[7][1] = 2;
-  array1[1] = array3[1] = array4[1][0] = array4[6][1] = 2;
-  array1[2] = array3[2] = array4[2][0] = array4[5][1] = 2;
-  array1[3] = array3[3] = array4[3][0] = array4[4][1] = 2;
-  array1[4] = array3[4] = array4[4][0] = array4[3][1] = 3;
-  array1[5] = array3[5] = array4[5][0] = array4[2][1] = 3;
-  array1[6] = array3[6] = array4[6][0] = array4[1][1] = 5;
-  array1[7] = array3[7] = array4[7][0] = array4[0][1] = 11;
+  for (i = 0; i < 8; i++)
+    array3[i] = array4[i][0] = array4[7 - i][1] = (double)array1[i];
   for (i = 0; i < 64; i++)
-    assert(array1[i] == array2[i]);
-  free(array1);
+    assert((i < 8 ? array1[i] : 0) == array2[i]);
   free(array2);
   assert(mean(array3, 8) == 3.75);
   assert(roundTo(variance(array3, 8), 6) == 8.4375);
