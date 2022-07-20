@@ -22,6 +22,7 @@ double poisson(int x, double mean)
 
 double gaussianCDF(double x, double mean, double standadDev)
 {
+  assert(standadDev != 0);
   double z = (x - mean) / standadDev,
          phi = exp(-pow(z, 2) / 2) / sqrt(2 * PI),
          sum = 0,
