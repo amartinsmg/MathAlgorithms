@@ -13,42 +13,36 @@
 #include "prime_numbers.h"
 #include "probability_distribution.h"
 
-double roundTo(double num, unsigned decimalPlaces)
-{
-  int base10 = pow(10, decimalPlaces);
-  return round(num * base10) / base10;
-}
-
 int main()
 {
   char str[100];
   int i;
-  long long array1[8] = {2, 2, 2, 2, 3, 3, 5, 11},
-            *array2 = primeFactors(7920);
-  double *array3 = (double *)calloc(sizeof(double), 8),
-         **array4 = (double **)malloc(sizeof(double) * 8),
-         *array5 = equationOfLine(1, 1, 2, 4);
+  long long arr1[8] = {2, 2, 2, 2, 3, 3, 5, 11},
+            *arr2 = primeFactors(7920);
+  double *arr3 = (double *)malloc(sizeof(double) * 8),
+         *arr4 = equationOfLine(1, 1, 2, 4),
+         **matrix = (double **)malloc(sizeof(double) * 8);
   for (i = 0; i < 8; i++)
-    array4[i] = (double *)malloc(sizeof(double) * 2);
+    matrix[i] = (double *)malloc(sizeof(double) * 2);
   for (i = 0; i < 8; i++)
-    array3[i] = array4[i][0] = array4[7 - i][1] = (double)array1[i];
+    arr3[i] = matrix[i][0] = matrix[7 - i][1] = (double)arr1[i];
   for (i = 0; i < 64; i++)
-    assert((i < 8 ? array1[i] : 0) == array2[i]);
-  free(array2);
-  assert(mean(array3, 8) == 3.75);
-  assert(roundTo(variance(array3, 8), 6) == 8.4375);
-  assert(roundTo(sampleVariance(array3, 8), 6) == 9.642857);
-  assert(roundTo(standardDeviation(array3, 8), 6) == 2.904738);
-  assert(roundTo(sampleStandardDeviation(array3, 8), 6) == 3.105295);
-  assert(roundTo(geometricMean(array3, 8), 6) == 3.07143);
-  assert(roundTo(harmonicMean(array3, 8), 6) == 2.704918);
-  free(array3);
-  assert(roundTo(weightedMean(array4, 8), 6) == 2.933333);
-  free(array4);
-  assert(array5[0] == 3 && array5[1] == -2);
-  array5 = midpointPoints(1, 1, 2, 4);
-  assert(array5[0] == 1.5 && array5[1] == 2.5);
-  free(array5);
+    assert((i < 8 ? arr1[i] : 0) == arr2[i]);
+  free(arr2);
+  assert(mean(arr3, 8) == 3.75);
+  assert(roundTo(variance(arr3, 8), 6) == 8.4375);
+  assert(roundTo(sampleVariance(arr3, 8), 6) == 9.642857);
+  assert(roundTo(standardDeviation(arr3, 8), 6) == 2.904738);
+  assert(roundTo(sampleStandardDeviation(arr3, 8), 6) == 3.105295);
+  assert(roundTo(geometricMean(arr3, 8), 6) == 3.07143);
+  assert(roundTo(harmonicMean(arr3, 8), 6) == 2.704918);
+  free(arr3);
+  assert(roundTo(weightedMean(matrix, 8), 6) == 2.933333);
+  free(matrix);
+  assert(arr4[0] == 3 && arr4[1] == -2);
+  arr4 = midpointPoints(1, 1, 2, 4);
+  assert(arr4[0] == 1.5 && arr4[1] == 2.5);
+  free(arr4);
 
   assert(isPrime(7919));
   assert(!isPrime(5329));

@@ -34,7 +34,7 @@ double *midpointPoints(double ax, double ay, double bx, double by)
 
 double slopeOfLine(double x1, double y1, double x2, double y2)
 {
-  assert(x1 != x2 && y1 != y2);
+  assert(x1 != x2 || y1 != y2);
   double result = (y2 - y1) / (x2 - x1);
   return result;
 }
@@ -56,7 +56,7 @@ double *equationOfLine(double x1, double y1, double x2, double y2)
 double distancePointLine(double inclinationLine, double c, double x0, double y0)
 {
   double result = absf(inclinationLine * x0 - y0 + c) /
-                  hypotenusePythagorean(inclinationLine, -1);
+                  sqrt(pow(inclinationLine, 2) + 1);
   return result;
 }
 
@@ -68,24 +68,28 @@ double circlePerimeter(double radius)
 
 double regularPolygonSumInteAngles(double nOfSides)
 {
+  assert(nOfSides > 0);
   double result = (nOfSides - 2) * PI;
   return result;
 }
 
 double regularPolygonInteriorAngle(int nOfSides)
 {
+  assert(nOfSides > 0);
   double result = regularPolygonSumInteAngles(nOfSides) / nOfSides;
   return result;
 }
 
 double regularPolygonExteriorAngle(int nOfSides)
 {
+  assert(nOfSides > 0);
   double result = 2 * PI / nOfSides;
   return result;
 }
 
 int nOfDiagnonalsPolygon(int nOfSides)
 {
+  assert(nOfSides > 0);
   double result = nOfSides * (nOfSides - 3) / 2;
   return result;
 }
