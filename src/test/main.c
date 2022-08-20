@@ -19,11 +19,11 @@ int main()
   int i;
   long long arr1[8] = {2, 2, 2, 2, 3, 3, 5, 11},
             *arr2 = primeFactors(7920);
-  double *arr3 = (double *)malloc(sizeof(double) * 8),
+  double *arr3 = (double *)malloc(sizeof(*arr3) * 8),
          *arr4 = equationOfLine(1, 1, 2, 4),
-         **matrix = (double **)malloc(sizeof(double) * 8);
+         **matrix = (double **)malloc(sizeof(*matrix) * 8);
   for (i = 0; i < 8; i++)
-    matrix[i] = (double *)malloc(sizeof(double) * 2);
+    matrix[i] = (double *)malloc(sizeof(**matrix) * 2);
   for (i = 0; i < 8; i++)
     arr3[i] = matrix[i][0] = matrix[7 - i][1] = (double)arr1[i];
   for (i = 0; i < 64; i++)
@@ -69,13 +69,11 @@ int main()
   assert(arrangement(17, 11) == 494010316800);
   assert(combination(19, 15) == 3876);
   sprintf(str, "%e", factoriallf(60));
-  assert(strcmp(str, "8.320987e+081") == 0);
+  assert(strcmp(str, "8.320987e+081") == 0 || strcmp(str, "8.320987e+81") == 0);
   sprintf(str, "%e", permutationlf(40));
-  assert(strcmp(str, "8.159153e+047") == 0);
+  assert(strcmp(str, "8.159153e+047") == 0 || strcmp(str, "8.159153e+47") == 0);
   sprintf(str, "%e", cyclePermutationlf(36));
-  assert(strcmp(str, "1.033315e+040") == 0);
-  sprintf(str, "%e", factoriallf(60));
-  assert(strcmp(str, "8.320987e+081") == 0);
+  assert(strcmp(str, "1.033315e+040") == 0 || strcmp(str, "1.033315e+40") == 0);
   assert(round(arrangementlf(60, 6)) == 36045979200);
   assert(round(combinationlf(30, 21)) == 14307150);
   assert(roundTo(binominal(10, 6, 0.2), 6) == 0.005505);
