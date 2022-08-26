@@ -16,7 +16,7 @@ int _sumOfSquareEachDig(long long num)
 
 bool isHappy(long long num)
 {
-  long long sum, *numSet = (long long *)calloc(64, sizeof(long long));
+  long long sum, *numSet = (long long *)calloc(64, sizeof(*numSet));
   int i, lenNumSet;
   numSet[0] = num;
   lenNumSet = 1;

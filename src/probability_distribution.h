@@ -14,23 +14,21 @@ double binominal(int trials, int success, double success_prob)
   return result;
 }
 
-double poisson(int x, double mean)
+double poisson(unsigned x, double mean)
 {
   double result;
-  assert(x >= 0);
   result = exp(-mean) * pow(mean, x) / factoriallf(x);
   return result;
 }
 
 double gaussianCDF(double x, double mean, double standadDev)
 {
-  double denominator, phi, result, sum, z;
+  double phi, result, z, denominator = 1,
+                         sum = 0;
   int i;
-  assert(standadDev != 0);
+  assert(standadDev > 0);
   z = (x - mean) / standadDev;
   phi = exp(-pow(z, 2) / 2) / sqrt(2 * PI);
-  sum = 0;
-  denominator = 1;
   for (i = 1; i <= 100; i += 2)
   {
     denominator *= i;

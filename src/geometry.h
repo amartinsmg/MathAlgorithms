@@ -22,7 +22,7 @@ double distancePoints(double ax, double ay, double bx, double by)
 
 double *midpointPoints(double ax, double ay, double bx, double by)
 {
-  double *result = (double *)malloc(sizeof(double) * 2),
+  double *result = (double *)malloc(sizeof(*result) * 2),
          x[2] = {ax, bx},
          y[2] = {ay, by};
   result[0] = mean(x, 2);
@@ -46,7 +46,7 @@ double angleOfInclineLine(double x1, double y1, double x2, double y2)
 
 double *equationOfLine(double x1, double y1, double x2, double y2)
 {
-  double *result = (double *)malloc(sizeof(double) * 2);
+  double *result = (double *)malloc(sizeof(*result) * 2);
   result[0] = slopeOfLine(x1, y1, x2, y2);
   result[1] = y1 - result[0] * x1;
   return result;

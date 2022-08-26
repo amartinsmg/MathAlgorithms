@@ -44,7 +44,6 @@ int main()
   arr4 = midpointPoints(1, 1, 2, 4);
   assert(arr4[0] == 1.5 && arr4[1] == 2.5);
   free(arr4);
-
   assert(isPrime(7919));
   assert(!isPrime(5329));
   assert(isPerfect(6));
@@ -127,7 +126,7 @@ int main()
   assert(roundTo(cylinderVol(2, 5.5), 6) == 69.115038);
   assert(roundTo(coneVol(4, 6), 6) == 100.530965);
 
-  printf("Passed all tests successfully!\n");
+  puts("Passed all tests successfully!");
 
   return 0;
 }

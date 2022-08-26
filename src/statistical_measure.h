@@ -16,7 +16,7 @@ double mean(double *values, int length)
 double weightedMean(double **valuesWeightsPairs, int length)
 {
   double result, value, weight, sum = 0,
-         weightSum = 0;
+                                weightSum = 0;
   int i;
   assert(length > 0);
   for (i = 0; i < length; i++)
@@ -50,7 +50,10 @@ double harmonicMean(double *values, int length)
   int i;
   assert(length > 0);
   for (i = 0; i < length; i++)
+  {
+    assert(values[i]);
     sum += 1 / values[i];
+  }
   assert(sum != 0);
   result = length / sum;
   return result;
@@ -80,6 +83,7 @@ double sampleVariance(double *values, int length)
          sum = 0,
          result;
   int i;
+  assert(length != 1);
   for (i = 0; i < length; i++)
     sum += pow((values[i] - mu), 2);
   result = sum / (length - 1);

@@ -23,7 +23,7 @@ double retangleArea(double width, double length)
 double regPolygonArea(double side, int nOfSides)
 {
   double apothen, perimeter, result;
-  assert(side > 0);
+  assert(side > 0 && nOfSides > 0);
   apothen = side / (2 * tan(PI / nOfSides));
   perimeter = side * nOfSides;
   result = perimeter * apothen / 2;
@@ -41,7 +41,7 @@ double triangleA1(double base, double height)
 double triangleA2(double sideA, double sideB, double angleGama)
 {
   double result;
-  assert(sideA > 0 && sideB > 0);
+  assert(sideA > 0 && sideB > 0 && angleGama > 0 && angleGama < PI);
   result = sideA * sideB * sin(angleGama) / 2;
   return result;
 }
@@ -87,18 +87,18 @@ double circleArea(double radius)
   return result;
 }
 
-double circularSecA1(double theta, double radius)
+double circularSecA1(double angle, double radius)
 {
   double result;
-  assert(radius > 0);
-  result = theta * pow(radius, 2) / 2;
+  assert(radius > 0 && angle >= 0);
+  result = angle * pow(radius, 2) / 2;
   return result;
 }
 
 double circulaSecA2(double arc, double radius)
 {
   double result;
-  assert(radius > 0 && arc > 0);
+  assert(radius > 0 && arc >= 0);
   result = arc * radius / 2;
   return result;
 }
@@ -127,36 +127,36 @@ double cuboidArea(double width, double length, double height)
   return result;
 }
 
-double prismArea(double baseA, double basePerimeter, double height)
+double prismArea(double baseArea, double basePerimeter, double height)
 {
   double result;
-  assert(baseA > 0 && basePerimeter > 0 && height > 0);
-  result = 2 * baseA + basePerimeter * height;
+  assert(baseArea > 0 && basePerimeter > 0 && height > 0);
+  result = 2 * baseArea + basePerimeter * height;
   return result;
 }
 
 double regPrismArea(double baseSide, int nOfBaseSides, double height)
 {
-  double baseA = regPolygonArea(baseSide, nOfBaseSides),
+  double baseArea = regPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides;
-  return prismArea(baseA, basePerimeter, height);
+  return prismArea(baseArea, basePerimeter, height);
 }
 
-double pyramidArea(double baseA, double basePerimeter, double slantHeight)
+double pyramidArea(double baseArea, double basePerimeter, double slantHeight)
 {
   double result;
-  assert(baseA > 0 && basePerimeter > 0 && slantHeight > 0);
-  result = baseA + basePerimeter * slantHeight / 2;
+  assert(baseArea > 0 && basePerimeter > 0 && slantHeight > 0);
+  result = baseArea + basePerimeter * slantHeight / 2;
   return result;
 }
 
 double regPyramidArea(double baseSide, int nOfBaseSides, double heigth)
 {
-  double baseA = regPolygonArea(baseSide, nOfBaseSides),
+  double baseArea = regPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides,
          apothen = baseSide / (2 * tan(PI / nOfBaseSides)),
          slantHeight = hypotenuse(apothen, heigth);
-  return pyramidArea(baseA, basePerimeter, slantHeight);
+  return pyramidArea(baseArea, basePerimeter, slantHeight);
 }
 
 double sphereArea(double radius)

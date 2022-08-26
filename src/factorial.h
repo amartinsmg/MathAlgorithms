@@ -8,20 +8,20 @@
 
 long long factorial(int num)
 {
-  long long result;
+  long long result = 1;
+  int i;
   assert(num >= 0);
-  result = 1;
-  for (int i = 1; i <= num; i++)
+  for (i = 1; i <= num; i++)
     result *= i;
   return result;
 }
 
 double factoriallf(int num)
 {
-  double result;
+  double result = 1;
+  int i;
   assert(num >= 0);
-  result = 1;
-  for (int i = 1; i <= num; i++)
+  for (i = 1; i <= num; i++)
     result *= i;
   return result;
 }
