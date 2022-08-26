@@ -8,7 +8,9 @@ double logarithm(double num, double base)
 
 double nthRoot(double radicand, double degree)
 {
-  double result = pow(radicand, (1 / degree));
+  double result;
+  assert(degree != 0);
+  result = pow(radicand, (1 / degree));
   return result;
 }
 
@@ -22,6 +24,7 @@ double absf(double num)
 
 double roundTo(double num, unsigned decimalPlaces)
 {
-  int base10 = pow(10, decimalPlaces);
-  return round(num * base10) / base10;
+  double result, base10 = pow(10, decimalPlaces);
+  result = round(num * base10) / base10;
+  return result;
 }

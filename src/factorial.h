@@ -8,8 +8,9 @@
 
 long long factorial(int num)
 {
+  long long result;
   assert(num >= 0);
-  long long result = 1;
+  result = 1;
   for (int i = 1; i <= num; i++)
     result *= i;
   return result;
@@ -17,8 +18,9 @@ long long factorial(int num)
 
 double factoriallf(int num)
 {
+  double result;
   assert(num >= 0);
-  double result = 1;
+  result = 1;
   for (int i = 1; i <= num; i++)
     result *= i;
   return result;

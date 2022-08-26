@@ -3,7 +3,8 @@
 bool isPerfect(long long num)
 {
   long long sum = 0;
-  for (int i = 1; i < num; i++)
+  int i;
+  for (i = 1; i < num; i++)
   {
     if (num % i == 0)
       sum += i;

@@ -4,9 +4,10 @@
 int _sumOfSquareEachDig(long long num)
 {
   long long sum = 0;
+  int remainder;
   while (num > 0)
   {
-    int remainder = num % 10;
+    remainder = num % 10;
     num /= 10;
     sum += remainder * remainder;
   }
@@ -15,20 +16,21 @@ int _sumOfSquareEachDig(long long num)
 
 bool isHappy(long long num)
 {
-  long long *numSet = (long long *)calloc(64, sizeof(long long));
+  long long sum, *numSet = (long long *)calloc(64, sizeof(long long));
+  int i, lenNumSet;
   numSet[0] = num;
-  int lengthNumSet = 1;
+  lenNumSet = 1;
   while (true)
   {
-    long long sum = _sumOfSquareEachDig(num);
+    sum = _sumOfSquareEachDig(num);
     if (sum == 1)
       return true;
-    for (int i = 0; i < lengthNumSet; i++)
+    for (i = 0; i < lenNumSet; i++)
     {
       if (numSet[i] == sum || sum == 0)
         return false;
     }
-    numSet[lengthNumSet++] = sum;
+    numSet[lenNumSet++] = sum;
     num = sum;
   }
 }

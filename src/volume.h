@@ -1,65 +1,70 @@
 #include <assert.h>
 #include "area.h"
 
-#define PI 3.141592653589793
-
-double cubeVolume(double side)
+double cubeVol(double side)
 {
+  double result; 
   assert(side > 0);
-  double volume = pow(side, 3);
-  return volume;
+  result = pow(side, 3);
+  return result;
 }
 
-double cuboidVolume(double length, double width, double height)
+double cuboidVol(double length, double width, double height)
 {
+  double result; 
   assert(width > 0 && length > 0 && height > 0);
-  double volume = length * width * height;
-  return volume;
+  result = length * width * height;
+  return result;
 }
 
-double prismVolume(double baseArea, double height)
+double prismVol(double baseArea, double height)
 {
+  double result; 
   assert(baseArea > 0 && height > 0);
-  double volume = baseArea * height;
-  return volume;
+  result = baseArea * height;
+  return result;
 }
 
-double regularPrismVolume(double baseSide, int nOfBaseSides, double height)
+double regPrismVol(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regularPolygonArea(baseSide, nOfBaseSides);
-  return prismVolume(baseArea, height);
+  double baseArea = regPolygonArea(baseSide, nOfBaseSides);
+  return prismVol(baseArea, height);
 }
 
-double pyramidVolume(double baseArea, double height)
+double pyramidVol(double baseArea, double height)
 {
+  double result; 
   assert(baseArea > 0 && height > 0);
-  double volume = baseArea * height / 3;
-  return volume;
+  result = baseArea * height / 3;
+  return result;
 }
 
-double regularPyramidVolume(double baseSide, int nOfBaseSides, double height)
+double regPyramidVol(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regularPolygonArea(baseSide, nOfBaseSides);
-  return pyramidVolume(baseArea, height);
+  double baseArea = regPolygonArea(baseSide, nOfBaseSides);
+  return pyramidVol(baseArea, height);
 }
 
-double sphereVolume(double radius)
+double sphereVol(double radius)
 {
+  double result; 
   assert(radius > 0);
-  double volume = 4 * PI * pow(radius, 3) / 3;
-  return volume;
+  result = 4 * PI * pow(radius, 3) / 3;
+  return result;
 }
 
-double cylinderVolume(double baseRadius, double height)
+double cylinderVol(double baseRadius, double height)
 {
+  double result; 
   assert(baseRadius > 0 && height > 0);
-  double volume = circleArea(baseRadius) * height;
-  return volume;
+  result = circleArea(baseRadius) * height;
+  return result;
 }
 
-double coneVolume(double baseRadius, double height)
+double coneVol(double baseRadius, double height)
 {
+  double result; 
   assert(baseRadius > 0 && height > 0);
-  double volume = circleArea(baseRadius) * height / 3;
-  return volume;
+  result = circleArea(baseRadius) * height / 3;
+  return result;
 }

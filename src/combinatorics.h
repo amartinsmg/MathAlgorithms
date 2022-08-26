@@ -10,56 +10,64 @@
 
 long long permutation(int num)
 {
+  long long result;
   assert(num > 0);
-  long long result = factorial(num);
+  result = factorial(num);
   return result;
 }
 
 long long cyclePermutation(int num)
 {
+  long long result;
   assert(num > 0);
-  long long result = factorial(num - 1);
+  result = factorial(num - 1);
   return result;
 }
 
 long long arrangement(int total, int selected)
 {
+  long long result;
   assert(total > 0 && selected >= 0);
-  long long result = factorial(total) / factorial(total - selected);
+  result = factorial(total) / factorial(total - selected);
   return result;
 }
 
 long long combination(int total, int selected)
 {
+  long long result;
   assert(total > 0 && selected >= 0 && selected <= total);
-  long long result = factorial(total) / (factorial(selected) * factorial(total - selected));
+  result = factorial(total) / (factorial(selected) * factorial(total - selected));
   return result;
 }
 
 double permutationlf(int num)
 {
+  double result;
   assert(num > 0);
-  double result = factoriallf(num);
+  result = factoriallf(num);
   return result;
 }
 
 double cyclePermutationlf(int num)
 {
+  double result;
   assert(num > 0);
-  double result = factoriallf(num - 1);
+  result = factoriallf(num - 1);
   return result;
 }
 
 double arrangementlf(int total, int selected)
 {
+  double result;
   assert(total > 0 && selected >= 0);
-  double result = factoriallf(total) / factoriallf(total - selected);
+  result = factoriallf(total) / factoriallf(total - selected);
   return result;
 }
 
 double combinationlf(int total, int selected)
 {
+  double result;
   assert(total > 0 && selected >= 0 && selected <= total);
-  double result = factoriallf(total) / (factoriallf(selected) * factoriallf(total - selected));
+  result = factoriallf(total) / (factoriallf(selected) * factoriallf(total - selected));
   return result;
 }

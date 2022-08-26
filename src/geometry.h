@@ -2,8 +2,6 @@
 #include "statistical_measure.h"
 #include "volume.h"
 
-#define PI 3.141592653589793
-
 double degrees2radians(double degrees)
 {
   double result = degrees / 180 * PI;
@@ -34,8 +32,9 @@ double *midpointPoints(double ax, double ay, double bx, double by)
 
 double slopeOfLine(double x1, double y1, double x2, double y2)
 {
+  double result;
   assert(x1 != x2 || y1 != y2);
-  double result = (y2 - y1) / (x2 - x1);
+  result = (y2 - y1) / (x2 - x1);
   return result;
 }
 
@@ -66,30 +65,34 @@ double circlePerimeter(double radius)
   return result;
 }
 
-double regularPolygonSumInteAngles(double nOfSides)
+double regPolygonSumInteAngles(double nOfSides)
 {
+  double result;
   assert(nOfSides > 0);
-  double result = (nOfSides - 2) * PI;
+  result = (nOfSides - 2) * PI;
   return result;
 }
 
-double regularPolygonInteriorAngle(int nOfSides)
+double regPolygonInteriorAngle(int nOfSides)
 {
+  double result;
   assert(nOfSides > 0);
-  double result = regularPolygonSumInteAngles(nOfSides) / nOfSides;
+  result = regPolygonSumInteAngles(nOfSides) / nOfSides;
   return result;
 }
 
-double regularPolygonExteriorAngle(int nOfSides)
+double regPolygonExteriorAngle(int nOfSides)
 {
+  double result;
   assert(nOfSides > 0);
-  double result = 2 * PI / nOfSides;
+  result = 2 * PI / nOfSides;
   return result;
 }
 
 int nOfDiagnonalsPolygon(int nOfSides)
 {
+  double result;
   assert(nOfSides > 0);
-  double result = nOfSides * (nOfSides - 3) / 2;
+  result = nOfSides * (nOfSides - 3) / 2;
   return result;
 }

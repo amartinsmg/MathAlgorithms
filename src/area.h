@@ -6,159 +6,179 @@
 
 double squareArea(double side)
 {
+  double result;
   assert(side > 0);
-  double area = pow(side, 2);
-  return area;
+  result = pow(side, 2);
+  return result;
 }
 
 double retangleArea(double width, double length)
 {
+  double result;
   assert(width > 0 && length > 0);
-  double area = width * length;
-  return area;
+  result = width * length;
+  return result;
 }
 
-double regularPolygonArea(double side, int nOfSides)
+double regPolygonArea(double side, int nOfSides)
 {
+  double apothen, perimeter, result;
   assert(side > 0);
-  double apothen = side / (2 * tan(PI / nOfSides)),
-         perimeter = side * nOfSides,
-         area = perimeter * apothen / 2;
-  return area;
+  apothen = side / (2 * tan(PI / nOfSides));
+  perimeter = side * nOfSides;
+  result = perimeter * apothen / 2;
+  return result;
 }
 
-double triangleBaseHeightArea(double base, double height)
+double triangleA1(double base, double height)
 {
+  double result;
   assert(base > 0 && height > 0);
-  double area = base * height / 2;
-  return area;
+  result = base * height / 2;
+  return result;
 }
 
-double triangleABGamaArea(double a, double b, double gama)
+double triangleA2(double sideA, double sideB, double angleGama)
 {
-  assert(a > 0 && b > 0);
-  double area = a * b * sin(gama) / 2;
-  return area;
+  double result;
+  assert(sideA > 0 && sideB > 0);
+  result = sideA * sideB * sin(angleGama) / 2;
+  return result;
 }
 
-double triangleABCArea(double a, double b, double c)
+double triangleA3(double sideA, double sideB, double SideC)
 {
-  assert(a > 0 && b > 0 && c > 0);
-  double s = (a + b + c) / 2,
-         area = sqrt(s * (s - a) * (s - b) * (s - c));
-  return area;
+  double result, s;
+  assert(sideA > 0 && sideB > 0 && SideC > 0);
+  s = (sideA + sideB + SideC) / 2;
+  result = sqrt(s * (s - sideA) * (s - sideB) * (s - SideC));
+  return result;
 }
 
 double parallelogramArea(double base, double height)
 {
+  double result;
   assert(base > 0 && height > 0);
-  double area = base * height;
-  return area;
+  result = base * height;
+  return result;
 }
 
 double trapezoidArea(double largerBase, double smallerBase, double height)
 {
+  double result;
   assert(largerBase > 0 && smallerBase > 0 && height > 0);
-  double area = (largerBase + smallerBase) * height / 2;
-  return area;
+  result = (largerBase + smallerBase) * height / 2;
+  return result;
 }
 
 double rhombusArea(double largerDiagonal, double smallerDiagonal)
 {
+  double result;
   assert(largerDiagonal > 0 && smallerDiagonal > 0);
-  double area = largerDiagonal * smallerDiagonal / 2;
-  return area;
+  result = largerDiagonal * smallerDiagonal / 2;
+  return result;
 }
 
 double circleArea(double radius)
 {
+  double result;
   assert(radius > 0);
-  double area = PI * pow(radius, 2);
-  return area;
+  result = PI * pow(radius, 2);
+  return result;
 }
 
-double circularSectorAngleArea(double theta, double radius)
+double circularSecA1(double theta, double radius)
 {
+  double result;
   assert(radius > 0);
-  double area = theta * pow(radius, 2) / 2;
-  return area;
+  result = theta * pow(radius, 2) / 2;
+  return result;
 }
 
-double circulaSectorArcArea(double arc, double radius)
+double circulaSecA2(double arc, double radius)
 {
+  double result;
   assert(radius > 0 && arc > 0);
-  double area = arc * radius / 2;
-  return area;
+  result = arc * radius / 2;
+  return result;
 }
 
 double ellipseArea(double semiMajorAxis, double semiMinorAxis)
 {
+  double result;
   assert(semiMajorAxis > 0 && semiMinorAxis > 0);
-  double area = PI * semiMajorAxis * semiMinorAxis;
-  return area;
+  result = PI * semiMajorAxis * semiMinorAxis;
+  return result;
 }
 
 double cubeArea(double side)
 {
+  double result;
   assert(side > 0);
-  double area = 6 * pow(side, 2);
-  return area;
+  result = 6 * pow(side, 2);
+  return result;
 }
 
 double cuboidArea(double width, double length, double height)
 {
+  double result;
   assert(width > 0 && length > 0 && height > 0);
-  double area = 2 * ((width * length) + (length * height) + (width * height));
-  return area;
-}
-
-double prismArea(double baseArea, double basePerimeter, double height)
-{
-  assert(baseArea > 0 && basePerimeter > 0 && height > 0);
-  double result = 2 * baseArea + basePerimeter * height;
+  result = 2 * ((width * length) + (length * height) + (width * height));
   return result;
 }
 
-double regularPrismArea(double baseSide, int nOfBaseSides, double height)
+double prismArea(double baseA, double basePerimeter, double height)
 {
-  double baseArea = regularPolygonArea(baseSide, nOfBaseSides),
+  double result;
+  assert(baseA > 0 && basePerimeter > 0 && height > 0);
+  result = 2 * baseA + basePerimeter * height;
+  return result;
+}
+
+double regPrismArea(double baseSide, int nOfBaseSides, double height)
+{
+  double baseA = regPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides;
-  return prismArea(baseArea, basePerimeter, height);
+  return prismArea(baseA, basePerimeter, height);
 }
 
-double pyramidArea(double baseArea, double basePerimeter, double slantHeight)
+double pyramidArea(double baseA, double basePerimeter, double slantHeight)
 {
-  assert(baseArea > 0 && basePerimeter > 0 && slantHeight > 0);
-  double result = baseArea + basePerimeter * slantHeight / 2;
+  double result;
+  assert(baseA > 0 && basePerimeter > 0 && slantHeight > 0);
+  result = baseA + basePerimeter * slantHeight / 2;
   return result;
 }
 
-double regularPyramidArea(double baseSide, int nOfBaseSides, double heigth)
+double regPyramidArea(double baseSide, int nOfBaseSides, double heigth)
 {
-  double baseArea = regularPolygonArea(baseSide, nOfBaseSides),
+  double baseA = regPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides,
          apothen = baseSide / (2 * tan(PI / nOfBaseSides)),
-         slantHeight = hypotenusePythagorean(apothen, heigth);
-  return pyramidArea(baseArea, basePerimeter, slantHeight);
+         slantHeight = hypotenuse(apothen, heigth);
+  return pyramidArea(baseA, basePerimeter, slantHeight);
 }
 
 double sphereArea(double radius)
 {
+  double result;
   assert(radius > 0);
-  double area = 4 * PI * pow(radius, 2);
-  return area;
+  result = 4 * PI * pow(radius, 2);
+  return result;
 }
 
 double cylinderArea(double baseRadius, double height)
 {
+  double result;
   assert(baseRadius > 0 && height > 0);
-  double area = 2 * PI * baseRadius * (baseRadius + height);
-  return area;
+  result = 2 * PI * baseRadius * (baseRadius + height);
+  return result;
 }
 
 double coneArea(double baseRadius, double height)
 {
+  double result;
   assert(baseRadius > 0 && height > 0);
-  double area = circleArea(baseRadius) + PI * baseRadius * hypotenusePythagorean(height, baseRadius);
-  return area;
+  result = circleArea(baseRadius) + PI * baseRadius * hypotenuse(height, baseRadius);
+  return result;
 }

@@ -8,7 +8,9 @@ double simpleGrowth(double initial, double rate, double interval)
 
 double simpleGrowthRate(double initial, double final, double interval)
 {
-  double result = (final / initial - 1) / interval;
+  double result;
+  assert(initial != 0 && interval != 0);
+  result = (final / initial - 1) / interval;
   return result;
 }
 
@@ -20,6 +22,8 @@ double compoundedGrowth(double initial, double rate, double interval)
 
 double compoundedGrowthRate(double initial, double final, double interval)
 {
-  double result = pow((final / initial), (1 / interval)) - 1;
+  double result;
+  assert(initial != 0 && interval != 0);
+  result = pow((final / initial), (1 / interval)) - 1;
   return result;
 }
