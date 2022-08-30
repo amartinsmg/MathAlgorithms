@@ -4,7 +4,7 @@
 
 #define PI 3.141592653589793
 
-double binominal(int trials, int success, double success_prob)
+double binominal(int trials, double success_prob, int success)
 {
   double result;
   assert(trials > 0 && success >= 0 && success_prob >= 0 && success_prob <= 1);
@@ -14,14 +14,14 @@ double binominal(int trials, int success, double success_prob)
   return result;
 }
 
-double poisson(unsigned x, double mean)
+double poisson(double mean, unsigned x)
 {
   double result;
   result = exp(-mean) * pow(mean, x) / factoriallf(x);
   return result;
 }
 
-double gaussianCDF(double x, double mean, double standadDev)
+double gaussianCDF(double mean, double standadDev, double x)
 {
   double phi, result, z, denominator = 1,
                          sum = 0;

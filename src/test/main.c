@@ -76,10 +76,10 @@ int main()
   assert(strcmp(str, "1.033315e+040") == 0 || strcmp(str, "1.033315e+40") == 0);
   assert(round(arrangementlf(60, 6)) == 36045979200);
   assert(round(combinationlf(30, 21)) == 14307150);
-  assert(roundTo(binominal(10, 6, 0.2), 6) == 0.005505);
-  assert(roundTo(poisson(4, 0.45), 5) == 0.00109);
-  assert(roundTo(gaussianCDF(3.5, 0, 1), 5) == 0.99977);
-  assert(roundTo(gaussianCDF(135000, 150000, 5000), 5) == 0.00135);
+  assert(roundTo(binominal(10, 0.2, 6), 6) == 0.005505);
+  assert(roundTo(poisson(0.45, 4), 5) == 0.00109);
+  assert(roundTo(gaussianCDF(0, 1, 3.5), 5) == 0.99977);
+  assert(roundTo(gaussianCDF(150000, 5000, 135000), 5) == 0.00135);
   assert(hypotenuse(3, 4) == 5);
   assert(roundTo(sideRetTriangle(4, 2), 6) == 3.464102);
   assert(roundTo(sideTriangleLC(4, 3, degrees2radians(60)), 6) == 3.605551);
