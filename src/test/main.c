@@ -29,7 +29,7 @@ int main()
   for (i = 0; i < 64; i++)
     assert((i < 8 ? arr1[i] : 0) == arr2[i]);
   free(arr2);
-  assert(roundTo(PI, 2) == 3.14);
+  assert(roundTo(M_PI, 2) == 3.14);
   assert(mean(arr3, 8) == 3.75);
   assert(roundTo(variance(arr3, 8), 6) == 8.4375);
   assert(roundTo(sampleVariance(arr3, 8), 6) == 9.642857);

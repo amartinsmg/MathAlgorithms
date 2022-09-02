@@ -2,8 +2,6 @@
 #include <math.h>
 #include "trigonometry.h"
 
-#define PI 3.141592653589793
-
 double squareArea(double side)
 {
   double result;
@@ -24,7 +22,7 @@ double regPolygonArea(double side, int nOfSides)
 {
   double apothen, perimeter, result;
   assert(side > 0 && nOfSides > 0);
-  apothen = side / (2 * tan(PI / nOfSides));
+  apothen = side / (2 * tan(M_PI / nOfSides));
   perimeter = side * nOfSides;
   result = perimeter * apothen / 2;
   return result;
@@ -41,7 +39,7 @@ double triangleA1(double base, double height)
 double triangleA2(double sideA, double sideB, double angleGama)
 {
   double result;
-  assert(sideA > 0 && sideB > 0 && angleGama > 0 && angleGama < PI);
+  assert(sideA > 0 && sideB > 0 && angleGama > 0 && angleGama < M_PI);
   result = sideA * sideB * sin(angleGama) / 2;
   return result;
 }
@@ -83,7 +81,7 @@ double circleArea(double radius)
 {
   double result;
   assert(radius > 0);
-  result = PI * pow(radius, 2);
+  result = M_PI * pow(radius, 2);
   return result;
 }
 
@@ -107,7 +105,7 @@ double ellipseArea(double semiMajorAxis, double semiMinorAxis)
 {
   double result;
   assert(semiMajorAxis > 0 && semiMinorAxis > 0);
-  result = PI * semiMajorAxis * semiMinorAxis;
+  result = M_PI * semiMajorAxis * semiMinorAxis;
   return result;
 }
 
@@ -154,7 +152,7 @@ double regPyramidArea(double baseSide, int nOfBaseSides, double heigth)
 {
   double baseArea = regPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides,
-         apothen = baseSide / (2 * tan(PI / nOfBaseSides)),
+         apothen = baseSide / (2 * tan(M_PI / nOfBaseSides)),
          slantHeight = hypotenuse(apothen, heigth);
   return pyramidArea(baseArea, basePerimeter, slantHeight);
 }
@@ -163,7 +161,7 @@ double sphereArea(double radius)
 {
   double result;
   assert(radius > 0);
-  result = 4 * PI * pow(radius, 2);
+  result = 4 * M_PI * pow(radius, 2);
   return result;
 }
 
@@ -171,7 +169,7 @@ double cylinderArea(double baseRadius, double height)
 {
   double result;
   assert(baseRadius > 0 && height > 0);
-  result = 2 * PI * baseRadius * (baseRadius + height);
+  result = 2 * M_PI * baseRadius * (baseRadius + height);
   return result;
 }
 
@@ -179,6 +177,6 @@ double coneArea(double baseRadius, double height)
 {
   double result;
   assert(baseRadius > 0 && height > 0);
-  result = circleArea(baseRadius) + PI * baseRadius * hypotenuse(height, baseRadius);
+  result = circleArea(baseRadius) + M_PI * baseRadius * hypotenuse(height, baseRadius);
   return result;
 }

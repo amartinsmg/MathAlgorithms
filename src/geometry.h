@@ -4,13 +4,13 @@
 
 double degrees2radians(double degrees)
 {
-  double result = degrees / 180 * PI;
+  double result = degrees / 180 * M_PI;
   return result;
 }
 
 double radians2degrees(double radians)
 {
-  double result = radians / PI * 180;
+  double result = radians / M_PI * 180;
   return result;
 }
 
@@ -61,7 +61,7 @@ double distancePointLine(double inclinationLine, double c, double x0, double y0)
 
 double circlePerimeter(double radius)
 {
-  double result = 2 * PI * radius;
+  double result = 2 * M_PI * radius;
   return result;
 }
 
@@ -69,7 +69,7 @@ double regPolygonSumInteAngles(double nOfSides)
 {
   double result;
   assert(nOfSides > 0);
-  result = (nOfSides - 2) * PI;
+  result = (nOfSides - 2) * M_PI;
   return result;
 }
 
@@ -85,7 +85,7 @@ double regPolygonExteriorAngle(int nOfSides)
 {
   double result;
   assert(nOfSides > 0);
-  result = 2 * PI / nOfSides;
+  result = 2 * M_PI / nOfSides;
   return result;
 }
 

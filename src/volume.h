@@ -49,7 +49,7 @@ double sphereVol(double radius)
 {
   double result; 
   assert(radius > 0);
-  result = 4 * PI * pow(radius, 3) / 3;
+  result = 4 * M_PI * pow(radius, 3) / 3;
   return result;
 }
 
