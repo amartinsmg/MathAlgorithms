@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <math.h>
 
 double simpleGrowth(double initial, double rate, double interval)

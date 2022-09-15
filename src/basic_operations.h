@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <math.h>
 
 double logarithm(double num, double base)

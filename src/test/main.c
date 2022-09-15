@@ -54,7 +54,7 @@ int main()
   assert(!isArmstrong(125));
   assert(nthRoot(4096, 4) == 8);
   assert(logarithm(1024, 4) == 5);
-  assert(absf(-4) == 4);
+  assert(absf(-4.25) == 4.25);
   assert(nPercentOfX(725, 5) == 36.25);
   assert(nIsWhatPercentOfX(95, 7.6) == 8);
   assert(simpleGrowth(5, 0.05, 3) == 5.75);
