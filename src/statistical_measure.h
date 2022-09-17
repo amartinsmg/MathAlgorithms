@@ -60,6 +60,32 @@ double harmonicMean(double *values, int length)
   return result;
 }
 
+double min(double *values, int length)
+{
+  double result = __DBL_MAX__;
+  int i;
+  for (i = 0; i < length; i++)
+    result = values[i] < result ? values[i] : result;
+  return result;
+}
+
+double max(double *values, int length)
+{
+  double result = -__DBL_MAX__;
+  int i;
+  for (i = 0; i < length; i++)
+    result = values[i] > result ? values[i] : result;
+  return result;
+}
+
+double rangeStatistics(double *values, int length)
+{
+  double minValue = min(values, length),
+  maxValue = max(values, length),
+  result= maxValue - minValue;
+  return result;
+}
+
 double variance(double *values, int length)
 {
   double mu = mean(values, length),
