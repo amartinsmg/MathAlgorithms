@@ -31,12 +31,15 @@ int main()
   free(arr2);
   assert(roundTo(M_PI, 2) == 3.14);
   assert(mean(arr3, 8) == 3.75);
+  assert(roundTo(geometricMean(arr3, 8), 6) == 3.07143);
+  assert(roundTo(harmonicMean(arr3, 8), 6) == 2.704918);
+  assert(min(arr3, 8) == 2);
+  assert(max(arr3, 8) == 11);
+  assert(rangeStatistics(arr3, 8) == 9);
   assert(roundTo(variance(arr3, 8), 6) == 8.4375);
   assert(roundTo(sampleVariance(arr3, 8), 6) == 9.642857);
   assert(roundTo(standardDeviation(arr3, 8), 6) == 2.904738);
   assert(roundTo(sampleStandardDeviation(arr3, 8), 6) == 3.105295);
-  assert(roundTo(geometricMean(arr3, 8), 6) == 3.07143);
-  assert(roundTo(harmonicMean(arr3, 8), 6) == 2.704918);
   free(arr3);
   assert(roundTo(weightedMean(matrix, 8), 6) == 2.933333);
   free(matrix);
