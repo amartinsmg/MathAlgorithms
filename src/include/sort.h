@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-double *insertion_sort(double *values, int length)
+double *sort(double *values, int length)
 {
   double num, *result = (double *)malloc(sizeof(*result) * length);
   int i, j;
