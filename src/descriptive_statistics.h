@@ -38,7 +38,7 @@ double trimmedMean(double *values, unsigned lenght, double trimmedMeanPercentage
 {
   unsigned nElementsToTrim = (unsigned)round(nPercentOfX(lenght, trimmedMeanPercentage));
   assert(2 * nElementsToTrim < lenght);
-  values = insertion_sort(values, lenght);
+  values = sort(values, lenght);
   values += nElementsToTrim;
   lenght -= 2 * nElementsToTrim;
   return mean(values, lenght);
@@ -96,7 +96,7 @@ double *mode(double *values, unsigned length, unsigned *ptrNOfModes)
   frequency = (double **)malloc(sizeof(*frequency) * length);
   for (i = 0; i < length; i++)
     frequency[i] = (double *)calloc(sizeof(**frequency), 2);
-  sortedValues = insertion_sort(values, length);
+  sortedValues = sort(values, length);
   frequency[frequencyLength++][0] = sortedValues[0];
   for (i = 0; i < length; i++)
   {
