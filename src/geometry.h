@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <math.h>
-#include "statistical_measure.h"
+#include "descriptive_statistics.h"
 #include "volume.h"
 
 double degrees2radians(double degrees)
