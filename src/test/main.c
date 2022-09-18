@@ -7,7 +7,6 @@
 #include "growth.h"
 #include "happy_numbers.h"
 #include "lcm.h"
-#include "percentage.h"
 #include "perfect_numbers.h"
 #include "prime_factorization.h"
 #include "prime_numbers.h"
@@ -17,6 +16,7 @@ int main()
 {
   char str[100];
   int i;
+  unsigned nOfModes;
   long long arr1[8] = {2, 2, 2, 2, 3, 3, 5, 11},
             *arr2 = primeFactors(7920);
   double *arr3 = (double *)malloc(sizeof(*arr3) * 8),
@@ -33,9 +33,13 @@ int main()
   assert(mean(arr3, 8) == 3.75);
   assert(roundTo(geometricMean(arr3, 8), 6) == 3.07143);
   assert(roundTo(harmonicMean(arr3, 8), 6) == 2.704918);
+  assert(roundTo(trimmedMean(arr3, 8, 8), 6) == 2.833333);
+  assert(median(arr3, 8) == 2.5);
+  assert(mode(arr3, 8, &nOfModes)[0] == 2 && nOfModes == 1);
   assert(min(arr3, 8) == 2);
   assert(max(arr3, 8) == 11);
-  assert(rangeStatistics(arr3, 8) == 9);
+  assert(range(arr3, 8) == 9);
+  assert(midrange(arr3, 8) == 4.5);
   assert(roundTo(variance(arr3, 8), 6) == 8.4375);
   assert(roundTo(sampleVariance(arr3, 8), 6) == 9.642857);
   assert(roundTo(standardDeviation(arr3, 8), 6) == 2.904738);
