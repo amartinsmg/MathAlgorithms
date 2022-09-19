@@ -74,12 +74,13 @@ double harmonicMean(double *values, unsigned length)
 
 double median(double *values, unsigned length)
 {
-  double result;
+  double result,
+      *sortedValues = sort(values, length);
   assert(length > 0);
   if (length % 2)
-    result = values[length / 2];
+    result = sortedValues[length / 2];
   else
-    result = (values[length / 2 - 1] + values[length / 2]) / 2;
+    result = (sortedValues[length / 2 - 1] + sortedValues[length / 2]) / 2;
   return result;
 }
 
