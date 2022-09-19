@@ -44,6 +44,9 @@ int main()
   assert(roundTo(sampleVariance(arr3, 8), 6) == 9.642857);
   assert(roundTo(standardDeviation(arr3, 8), 6) == 2.904738);
   assert(roundTo(sampleStandardDeviation(arr3, 8), 6) == 3.105295);
+  arr3[3] = 3;
+  arr3 = mode(arr3, 8, &nOfModes);
+  assert(arr3[0] == 2 && arr3[1] == 3 && nOfModes == 2);
   free(arr3);
   assert(roundTo(weightedMean(matrix, 8), 6) == 2.933333);
   free(matrix);
