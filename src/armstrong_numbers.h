@@ -3,7 +3,7 @@
 
 bool isArmstrong(long long num)
 {
-  int i, k = floor(log10(num)) + 1;
+  int i, k = floor(log10(num) + 1);
   long long n = num,
             sum = 0;
   for (i = 0; i < k; i++)
