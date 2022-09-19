@@ -25,9 +25,11 @@ bool isHappy(long long num)
     sum = _sumOfSquareEachDig(num);
     if (sum == 1)
       return true;
+    else if (sum == 0)
+      return false;
     for (i = 0; i < lenNumSet; i++)
     {
-      if (numSet[i] == sum || sum == 0)
+      if (numSet[i] == sum)
         return false;
     }
     numSet[lenNumSet++] = sum;
