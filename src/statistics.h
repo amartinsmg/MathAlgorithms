@@ -92,12 +92,11 @@ double *mode(double *values, unsigned length, unsigned *ptrNOfModes)
               resultLenght = 0,
               frequencyLength = 0;
   assert(length > 0);
-  result = (double *)malloc(sizeof(*result) * length);
-  sortedValues = (double *)calloc(sizeof(*result), length);
+  result = NULL;
+  sortedValues = sort(values, length);
   frequency = (double **)malloc(sizeof(*frequency) * length);
   for (i = 0; i < length; i++)
     frequency[i] = (double *)calloc(sizeof(**frequency), 2);
-  sortedValues = sort(values, length);
   frequency[frequencyLength++][0] = sortedValues[0];
   for (i = 0; i < length; i++)
   {
@@ -121,8 +120,8 @@ double *mode(double *values, unsigned length, unsigned *ptrNOfModes)
     {
       if (frequency[i][1] == max)
       {
+        result = (double *)realloc(result, sizeof(*result) * ++(*ptrNOfModes));
         result[resultLenght++] = frequency[i][0];
-        (*ptrNOfModes)++;
       }
     }
   }
