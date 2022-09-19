@@ -104,8 +104,8 @@ double *mode(double *values, unsigned length, unsigned *ptrNOfModes)
       frequency[frequencyLength - 1][1] += 1;
     else
     {
-      frequency[frequencyLength++][0] = sortedValues[i];
-      frequency[frequencyLength - 1][1] += 1;
+      frequency[frequencyLength][0] = sortedValues[i];
+      frequency[frequencyLength++][1] += 1;
     }
   }
   for (i = 0; i < frequencyLength; i++)
