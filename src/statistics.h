@@ -88,7 +88,7 @@ double *mode(double *values, unsigned length, unsigned *ptrNOfModes)
 {
   double *result, *sortedValues, **frequency;
   unsigned i, min = __UINT32_MAX__,
-              max = -__UINT32_MAX__,
+              max = 0,
               resultLenght = 0,
               frequencyLength = 0;
   assert(length > 0);
