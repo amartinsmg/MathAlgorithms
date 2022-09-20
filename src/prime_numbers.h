@@ -2,7 +2,7 @@
 
 bool isPrime(long long num)
 {
-  int i;
+  int i = 3;
   if (!(num % 2))
   {
     if (num == 2)
@@ -10,10 +10,11 @@ bool isPrime(long long num)
     else
       return false;
   }
-  for (i = 3; num % i && i <= num; i += 2)
+  while (num % i && i <= num)
   {
     if (i * i > num)
       return true;
+    i += 2;
   }
   return false;
 }
