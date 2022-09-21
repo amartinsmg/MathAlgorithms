@@ -8,15 +8,11 @@ double *sort(double *values, int length)
   for (i = 1; i < length; i++)
   {
     result[i] = num = values[i];
-    for (j = i - 1; j >= 0; j--)
+    j = i;
+    while (--j >= 0 && num < result[j])
     {
-      if (num < result[j])
-      {
-        result[j + 1] = result[j];
-        result[j] = num;
-      }
-      else
-        break;
+      result[j + 1] = result[j];
+      result[j] = num;
     }
   }
   return result;
