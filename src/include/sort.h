@@ -1,9 +1,9 @@
 #include <stdlib.h>
 
-double *sort(double *values, unsigned length)
+double *sort(double *values, int length)
 {
   double num, *result = (double *)malloc(sizeof(*result) * length);
-  unsigned i, j;
+  int i, j;
   result[0] = values[0];
   for (i = 1; i < length; i++)
   {
