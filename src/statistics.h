@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <math.h>
+#include <stdbool.h>
 #include "include/sort.h"
 #include "percentage.h"
 #include "basic_operations.h"
@@ -49,7 +50,19 @@ double geometricMean(double *values, unsigned length)
   double product = 1,
          result;
   unsigned i;
+  bool noNegatives, noPositives;
   assert(length > 0);
+  i = 0;
+  do
+  {
+    noNegatives = values[i] >= 0;
+  } while (noNegatives && ++i < length);
+  i = 0;
+  do
+  {
+    noPositives = values[i] <= 0;
+  } while (noPositives && ++i < length);
+  assert(noNegatives || noPositives);
   for (i = 0; i < length; i++)
     product *= values[i];
   result = nthRoot(product, length);
@@ -61,12 +74,16 @@ double harmonicMean(double *values, unsigned length)
   double sum = 0,
          result;
   unsigned i;
+  bool allPositives;
   assert(length > 0);
-  for (i = 0; i < length; i++)
+  i = 0;
+  do
   {
-    assert(values[i]);
+    allPositives = values[i] > 0;
+  } while (allPositives && ++i < length);
+  assert(allPositives);
+  for (i = 0; i < length; i++)
     sum += 1 / values[i];
-  }
   assert(sum != 0);
   result = length / sum;
   return result;
