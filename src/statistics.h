@@ -74,17 +74,12 @@ double harmonicMean(double *values, unsigned length)
   double sum = 0,
          result;
   unsigned i;
-  bool allPositives;
   assert(length > 0);
-  i = 0;
-  do
-  {
-    allPositives = values[i] > 0;
-  } while (allPositives && ++i < length);
-  assert(allPositives);
   for (i = 0; i < length; i++)
+  {
+    assert(values[i] > 0);
     sum += 1 / values[i];
-  assert(sum != 0);
+  }
   result = length / sum;
   return result;
 }
