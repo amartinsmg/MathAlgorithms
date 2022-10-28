@@ -64,8 +64,8 @@ double geometricMean(double *values, unsigned length)
   } while (noPositives && ++i < length);
   assert(noNegatives || noPositives);
   for (i = 0; i < length; i++)
-    product *= values[i];
-  result = nthRoot(product, length);
+    product *= abs(values[i]);
+  result = noNegatives ? nthRoot(product, length) : -nthRoot(product, length);
   return result;
 }
 
