@@ -1,6 +1,14 @@
 #include <stdbool.h>
 #include <math.h>
 
+/**
+  Checks whether the given number is an Armstrong number. An Armstrong number
+  is a number that is equal to the sum of its own digits raised to the power
+  of the number of digits.
+  @param num The number to be checked.
+  @return True if the number is an Armstrong number, false otherwise.
+*/
+
 bool isArmstrong(long long num)
 {
   int i, k = floor(log10(num) + 1);
