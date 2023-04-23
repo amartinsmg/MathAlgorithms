@@ -1,5 +1,11 @@
 #include <stdbool.h>
 
+/**
+  Checks whether the given number is a prime number.
+  @param num The number to be checked.
+  @return True if the number is a prime number, false otherwise.
+*/
+
 bool isPrime(long long num)
 {
   int i = 3;
