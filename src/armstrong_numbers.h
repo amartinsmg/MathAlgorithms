@@ -2,9 +2,7 @@
 #include <math.h>
 
 /**
-  Checks whether the given number is an Armstrong number. An Armstrong number
-  is a number that is equal to the sum of its own digits raised to the power
-  of the number of digits.
+  @brief Check if a number is an Armstrong number.
   @param num The number to be checked.
   @return True if the number is an Armstrong number, false otherwise.
 */
