@@ -1,11 +1,25 @@
 #include <assert.h>
 #include <math.h>
 
+/**
+  @brief Calculate the logarithm of a number with a given base.
+  @param num The number for which the logarithm will be calculated.
+  @param base The base of the logarithm.
+  @return The logarithm of the number with the given base.
+*/
+
 double logarithm(double num, double base)
 {
   double result = log(num) / log(base);
   return result;
 }
+
+/**
+  @brief Calculate the nth root of a radicand.
+  @param radicand The number to take the nth root of.
+  @param degree The degree of the root.
+  @return The nth root of the radicand.
+*/
 
 double nthRoot(double radicand, double degree)
 {
@@ -15,6 +29,12 @@ double nthRoot(double radicand, double degree)
   return result;
 }
 
+/**
+  @brief Calculate the absolute value of a number.
+  @param num The number for which the absolute value will be calculated.
+  @return The absolute value of the number.
+*/
+
 double absf(double num)
 {
   if (num >= 0)
@@ -22,6 +42,13 @@ double absf(double num)
   else
     return -num;
 }
+
+/**
+  @brief Round a number to a specified number of decimal places.
+  @param num The number to be rounded.
+  @param decimalPlaces The number of decimal places to round to.
+  @return The rounded number.
+*/
 
 double roundTo(double num, unsigned decimalPlaces)
 {
