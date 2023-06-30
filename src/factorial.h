@@ -1,13 +1,12 @@
 #include <assert.h>
 
 /**
-  This function calculates the factorial of the given integer using a for loop.
-  This function is suitable for numbers up to 20.
-  @param num The integer for which to calculate the factorial.
-  @return The factorial of the given integer as a long long value.
-  @pre num must be a non-negative integer.
-  @post The return value is the product of all positive integers less than or equal
-  to num
+  @brief Calculate the factorial of a number.
+  @param num The number for which factorial is to be calculated.
+  @return The factorial of the number.
+  @pre num must be a non-negative number.
+  @note This function is suitable for numbers up to 20. For numbers > 20 use the functions factoriallf() that use double precision
+  float to store the result, allowing numbers grether than 9223372036854776000 to be represented using exponential form.
  */
 
 long long factorial(int num)
@@ -21,16 +20,11 @@ long long factorial(int num)
 }
 
 /**
-  This function calculates the factorial of the given integer using a for loop.
-  This function is suitable for numbers greater than 20. It uses a double precision
-  float to store the result, allowing numbers greater than 9223372036854776000 to
-  be represented using exponential form.
-  @param num The integer for which to calculate the factorial.
-  @return The factorial of the given integer as a double value.
-  @pre num must be a non-negative integer.
-  @post The return value is the product of all positive integers less than or equal
-  to num.
-*/
+  @brief Calculate the factorial of a number using double precision.
+  @param num The number for which factorial is to be calculated.
+  @return The factorial of the number.
+  @pre num must be a non-negative number (double precision).
+ */
 
 double factoriallf(int num)
 {
