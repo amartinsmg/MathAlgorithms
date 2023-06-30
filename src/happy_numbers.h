@@ -1,6 +1,12 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+/**
+  @brief Checks whether the given number is a happy number.
+  @param num The number to be checked.
+  @return True if the number is a happy number, false otherwise.
+*/
+
 bool isHappy(long long num)
 {
   long long sum, *numSet = (long long *)malloc(sizeof(*numSet));
