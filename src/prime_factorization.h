@@ -1,5 +1,11 @@
 #include <stdlib.h>
 
+/**
+  @brief Calculate the prime factors of a given number.
+  @param num The number to calculate prime factors for.
+  @return An array of prime factors.
+*/
+
 long long *primeFactors(long long num)
 {
   long long i, *factors = (long long *)calloc(64, sizeof(*factors)),
