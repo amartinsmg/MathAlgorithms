@@ -2,6 +2,14 @@
 #include <math.h>
 #include "gcd.h"
 
+/**
+  @brief Calculate the least common multiple (LCM) of two integers.
+  @param x The first integer.
+  @param y The second integer.
+  @return The LCM of 'x' and 'y'.
+  @pre x and y cannot both be 0.
+*/
+
 long long lcm(int x, int y)
 {
   long long result;
