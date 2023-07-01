@@ -66,6 +66,14 @@ double circlePerimeter(double radius)
   return result;
 }
 
+int nOfDiagnonalsPolygon(int nOfSides)
+{
+  double result;
+  assert(nOfSides > 0);
+  result = nOfSides * (nOfSides - 3) / 2;
+  return result;
+}
+
 double regularPolygonSumInteAngles(double nOfSides)
 {
   double result;
@@ -87,13 +95,5 @@ double regularPolygonExteriorAngle(int nOfSides)
   double result;
   assert(nOfSides > 0);
   result = 2 * M_PI / nOfSides;
-  return result;
-}
-
-int nOfDiagnonalsPolygon(int nOfSides)
-{
-  double result;
-  assert(nOfSides > 0);
-  result = nOfSides * (nOfSides - 3) / 2;
   return result;
 }
