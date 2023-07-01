@@ -66,7 +66,7 @@ double circlePerimeter(double radius)
   return result;
 }
 
-double regPolygonSumInteAngles(double nOfSides)
+double regularPolygonSumInteAngles(double nOfSides)
 {
   double result;
   assert(nOfSides > 0);
@@ -74,15 +74,15 @@ double regPolygonSumInteAngles(double nOfSides)
   return result;
 }
 
-double regPolygonInteriorAngle(int nOfSides)
+double regularPolygonInteriorAngle(int nOfSides)
 {
   double result;
   assert(nOfSides > 0);
-  result = regPolygonSumInteAngles(nOfSides) / nOfSides;
+  result = regularPolygonSumInteAngles(nOfSides) / nOfSides;
   return result;
 }
 
-double regPolygonExteriorAngle(int nOfSides)
+double regularPolygonExteriorAngle(int nOfSides)
 {
   double result;
   assert(nOfSides > 0);
