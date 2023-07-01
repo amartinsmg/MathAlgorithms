@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <math.h>
-#include "area.h"
+#include "area_shape.h"
 
 /**
   @brief Calculates the surface area of a cube.
