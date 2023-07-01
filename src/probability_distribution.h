@@ -2,6 +2,16 @@
 #include <math.h>
 #include "combinatorics.h"
 
+/**
+  @brief Calculate the binomial coefficient.
+  @param trials The number of trials.
+  @param success_prob The success probability.
+  @param success The number of successful outcomes.
+  @return The binomial coefficient.
+  @pre trials must be greater than 0, success must be greater than or equal to 0,
+  success_prob must be between 0 and 1 (inclusive).
+*/
+
 double binominal(int trials, double success_prob, int success)
 {
   double result;
@@ -12,12 +22,28 @@ double binominal(int trials, double success_prob, int success)
   return result;
 }
 
+/**
+  @brief Calculate the Poisson probability.
+  @param mean The mean value.
+  @param x The number of occurrences.
+  @return The Poisson probability.
+*/
+
 double poisson(double mean, unsigned x)
 {
   double result;
   result = exp(-mean) * pow(mean, x) / factoriallf(x);
   return result;
 }
+
+/**
+  @brief Calculate the cumulative distribution function (CDF) of a Gaussian distribution.
+  @param mean The mean value of the Gaussian distribution.
+  @param standardDev The standard deviation of the Gaussian distribution.
+  @param x The input value.
+  @return The cumulative distribution function (CDF) value.
+  @pre standardDev must be greater than 0.
+*/
 
 double gaussianCDF(double mean, double standadDev, double x)
 {
