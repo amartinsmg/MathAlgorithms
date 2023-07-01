@@ -125,9 +125,9 @@ int main()
   assert(regularPrismArea(4, 4, 5) == 112);
   assert(roundTo(pyramidArea(9, 12, 4.2720018), 6) == 34.632011);
   assert(roundTo(regularPyramidArea(3, 4, 4), 6) == 34.632011);
-  assert(roundTo(sphereArea(4), 6) == 201.06193);
   assert(roundTo(cylinderArea(2, 5.5), 6) == 94.24778);
   assert(roundTo(coneArea(4, 6), 6) == 140.88287);
+  assert(roundTo(sphereArea(4), 6) == 201.06193);
   assert(cubeVol(4) == 64);
   assert(cuboidVol(4, 5, 6) == 120);
   assert(round(prismVol(16, 5)) == 80);
