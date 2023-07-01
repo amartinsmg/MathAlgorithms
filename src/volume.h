@@ -45,14 +45,6 @@ double regularPyramidVol(double baseSide, int nOfBaseSides, double height)
   return pyramidVol(baseArea, height);
 }
 
-double sphereVol(double radius)
-{
-  double result; 
-  assert(radius > 0);
-  result = 4 * M_PI * pow(radius, 3) / 3;
-  return result;
-}
-
 double cylinderVol(double baseRadius, double height)
 {
   double result; 
@@ -66,5 +58,13 @@ double coneVol(double baseRadius, double height)
   double result; 
   assert(baseRadius > 0 && height > 0);
   result = circleArea(baseRadius) * height / 3;
+  return result;
+}
+
+double sphereVol(double radius)
+{
+  double result; 
+  assert(radius > 0);
+  result = 4 * M_PI * pow(radius, 3) / 3;
   return result;
 }
