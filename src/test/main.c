@@ -96,15 +96,6 @@ int main()
   assert(round(radians2degrees(angleTriangleLC(2, 4, 3.464102))) == 30);
   assert(roundTo(sideTriangleLS(degrees2radians(60), 4, degrees2radians(45)), 6) == 4.898979);
   assert(round(radians2degrees(angleTriangleLS(4, 4, degrees2radians(45)))) == 45);
-  assert(distancePoints(-1, -1, 2, 3) == 5);
-  assert(roundTo(distancePointLine(3, -2, 0, 0), 6) == 0.632456);
-  assert(slopeOfLine(1, 1, 2, 4) == 3);
-  assert(roundTo(radians2degrees(angleOfInclineLine(1, 1, 2, 4)), 6) == 71.565051);
-  assert(roundTo(circlePerimeter(5), 6) == 31.415927);
-  assert(round(radians2degrees(regularPolygonSumInteAngles(5))) == 540);
-  assert(round(radians2degrees(regularPolygonInteriorAngle(5))) == 108);
-  assert(round(radians2degrees(regularPolygonExteriorAngle(5))) == 72);
-  assert(nOfDiagnonalsPolygon(6) == 9);
   assert(triangleArea1(4, 5) == 10);
   assert(roundTo(triangleArea2(2, 4, degrees2radians(60)), 4) == 3.4641);
   assert(triangleArea3(3, 4, 5) == 6);
@@ -134,9 +125,18 @@ int main()
   assert(round(regularPrismVol(4, 4, 5)) == 80);
   assert(round(pyramidVol(9, 4)) == 12);
   assert(round(regularPyramidVol(3, 4, 4)) == 12);
-  assert(roundTo(sphereVol(4), 6) == 268.082573);
   assert(roundTo(cylinderVol(2, 5.5), 6) == 69.115038);
   assert(roundTo(coneVol(4, 6), 6) == 100.530965);
+  assert(roundTo(sphereVol(4), 6) == 268.082573);
+  assert(distancePoints(-1, -1, 2, 3) == 5);
+  assert(roundTo(distancePointLine(3, -2, 0, 0), 6) == 0.632456);
+  assert(slopeOfLine(1, 1, 2, 4) == 3);
+  assert(roundTo(radians2degrees(angleOfInclineLine(1, 1, 2, 4)), 6) == 71.565051);
+  assert(roundTo(circlePerimeter(5), 6) == 31.415927);
+  assert(nOfDiagnonalsPolygon(6) == 9);
+  assert(round(radians2degrees(regularPolygonSumInteAngles(5))) == 540);
+  assert(round(radians2degrees(regularPolygonInteriorAngle(5))) == 108);
+  assert(round(radians2degrees(regularPolygonExteriorAngle(5))) == 72);
 
   puts("Passed all tests successfully!");
 
