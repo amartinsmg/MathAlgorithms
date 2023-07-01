@@ -134,7 +134,7 @@ int main()
   assert(roundTo(radians2degrees(angleOfInclineLine(1, 1, 2, 4)), 6) == 71.565051);
   assert(roundTo(circlePerimeter(5), 6) == 31.415927);
   assert(nOfDiagnonalsPolygon(6) == 9);
-  assert(round(radians2degrees(regularPolygonSumInteAngles(5))) == 540);
+  assert(round(radians2degrees(regularPolygonSumInteriorAngles(5))) == 540);
   assert(round(radians2degrees(regularPolygonInteriorAngle(5))) == 108);
   assert(round(radians2degrees(regularPolygonExteriorAngle(5))) == 72);
 
