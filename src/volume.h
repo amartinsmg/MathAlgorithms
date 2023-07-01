@@ -25,9 +25,9 @@ double prismVol(double baseArea, double height)
   return result;
 }
 
-double regPrismVol(double baseSide, int nOfBaseSides, double height)
+double regularPrismVol(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regPolygonArea(baseSide, nOfBaseSides);
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides);
   return prismVol(baseArea, height);
 }
 
@@ -39,9 +39,9 @@ double pyramidVol(double baseArea, double height)
   return result;
 }
 
-double regPyramidVol(double baseSide, int nOfBaseSides, double height)
+double regularPyramidVol(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regPolygonArea(baseSide, nOfBaseSides);
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides);
   return pyramidVol(baseArea, height);
 }
 
