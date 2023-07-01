@@ -1,7 +1,7 @@
 #include <stdbool.h>
 
 /**
-  Checks whether the given number is a prime number.
+  @brief Checks whether the given number is a prime number.
   @param num The number to be checked.
   @return True if the number is a prime number, false otherwise.
 */
