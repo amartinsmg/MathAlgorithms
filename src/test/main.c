@@ -2,15 +2,23 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <string.h>
-#include "armstrong_numbers.h"
-#include "geometry.h"
-#include "growth.h"
-#include "happy_numbers.h"
-#include "lcm.h"
-#include "perfect_numbers.h"
-#include "prime_factorization.h"
-#include "prime_numbers.h"
-#include "probability_distribution.h"
+#include <armstrong_numbers.h>
+#include <geometry.h>
+#include <growth.h>
+#include <happy_numbers.h>
+#include <lcm.h>
+#include <perfect_numbers.h>
+#include <prime_factorization.h>
+#include <prime_numbers.h>
+#include <probability_distribution.h>
+
+/**
+  @brief Main function to test mathematical algorithms.
+  This is the main function used to test different mathematical algorithms
+  by comparing the results with pre-calculated values. It serves as a testing
+  ground for verifying the correctness of the algorithms.
+  @return An integer representing the exit status of the program.
+*/
 
 int main()
 {
