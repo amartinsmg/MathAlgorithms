@@ -69,7 +69,7 @@ int main()
   assert(nIsWhatPercentOfX(95, 7.6) == 8);
   assert(simpleGrowth(5, 0.05, 3) == 5.75);
   assert(roundTo(simpleGrowthRate(5, 5.5, 4), 6) == 0.025);
-  assert(compoundedGrowth(5, 0.2, 3) == 8.64);
+  assert(roundTo(compoundedGrowth(5, 0.2, 3), 6) == 8.64);
   assert(roundTo(compoundedGrowthRate(5, 8.64, 3), 6) == 0.2);
   assert(gcd(40, 96) == 8);
   assert(lcm(6, 15) == 30);
