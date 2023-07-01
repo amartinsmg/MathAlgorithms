@@ -5,7 +5,7 @@
 # `dir`: creates the "debug" directory if it doesn't already exist.
 
 test: dir
-	gcc -I"src" -o debug/test src/test/main.c
+	gcc -o debug/test -I src src/test/main.c
 
 dir:
 	[ -d debug ] || mkdir debug
