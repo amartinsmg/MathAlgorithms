@@ -269,14 +269,6 @@ double regularPyramidArea(double baseSide, int nOfBaseSides, double heigth)
   return pyramidArea(baseArea, basePerimeter, slantHeight);
 }
 
-double sphereArea(double radius)
-{
-  double result;
-  assert(radius > 0);
-  result = 4 * M_PI * pow(radius, 2);
-  return result;
-}
-
 double cylinderArea(double baseRadius, double height)
 {
   double result;
@@ -290,5 +282,13 @@ double coneArea(double baseRadius, double height)
   double result;
   assert(baseRadius > 0 && height > 0);
   result = circleArea(baseRadius) + M_PI * baseRadius * hypotenuse(height, baseRadius);
+  return result;
+}
+
+double sphereArea(double radius)
+{
+  double result;
+  assert(radius > 0);
+  result = 4 * M_PI * pow(radius, 2);
   return result;
 }
