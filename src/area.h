@@ -7,52 +7,6 @@
 #endif
 
 /**
-  @brief Calculate the area of a square.
-  @param side The length of the side of the square.
-  @return The area of the square.
-*/
-
-double squareArea(double side)
-{
-  double result;
-  assert(side > 0);
-  result = pow(side, 2);
-  return result;
-}
-
-/**
-  @brief Calculate the area of a rectangle.
-  @param width The width of the rectangle.
-  @param length The length of the rectangle.
-  @return The area of the rectangle.
-*/
-
-double retangleArea(double width, double length)
-{
-  double result;
-  assert(width > 0 && length > 0);
-  result = width * length;
-  return result;
-}
-
-/**
-  @brief Calculate the area of a regular polygon.
-  @param side The length of one side of the polygon.
-  @param nOfSides The number of sides of the polygon.
-  @return The area of the regular polygon.
-*/
-
-double regularPolygonArea(double side, int nOfSides)
-{
-  double apothen, perimeter, result;
-  assert(side > 0 && nOfSides > 0);
-  apothen = side / (2 * tan(M_PI / nOfSides));
-  perimeter = side * nOfSides;
-  result = perimeter * apothen / 2;
-  return result;
-}
-
-/**
   @brief Calculate the area of a triangle given the base and height.
   @param base The length of the base of the triangle.
   @param height The height of the triangle.
@@ -97,6 +51,50 @@ double triangleArea3(double sideA, double sideB, double SideC)
   assert(sideA > 0 && sideB > 0 && SideC > 0);
   s = (sideA + sideB + SideC) / 2;
   result = sqrt(s * (s - sideA) * (s - sideB) * (s - SideC));
+  return result;
+}
+
+/**
+  @brief Calculate the area of a square.
+  @param side The length of the side of the square.
+  @return The area of the square.
+*/
+
+double squareArea(double side)
+{
+  double result;
+  assert(side > 0);
+  result = pow(side, 2);
+  return result;
+}
+
+/**
+  @brief Calculate the area of a rectangle.
+  @param width The width of the rectangle.
+  @param length The length of the rectangle.
+  @return The area of the rectangle.
+*/
+
+double retangleArea(double width, double length)
+{
+  double result;
+  assert(width > 0 && length > 0);
+  result = width * length;
+  return result;
+}
+
+/**
+  @brief Calculate the area of a rhombus given the lengths of the larger diagonal and smaller diagonal.
+  @param largerDiagonal The length of the larger diagonal of the rhombus.
+  @param smallerDiagonal The length of the smaller diagonal of the rhombus.
+  @return The area of the rhombus.
+*/
+
+double rhombusArea(double largerDiagonal, double smallerDiagonal)
+{
+  double result;
+  assert(largerDiagonal > 0 && smallerDiagonal > 0);
+  result = largerDiagonal * smallerDiagonal / 2;
   return result;
 }
 
@@ -148,17 +146,19 @@ double trapezoidArea(double largerBase, double smallerBase, double height)
 }
 
 /**
-  @brief Calculate the area of a rhombus given the lengths of the larger diagonal and smaller diagonal.
-  @param largerDiagonal The length of the larger diagonal of the rhombus.
-  @param smallerDiagonal The length of the smaller diagonal of the rhombus.
-  @return The area of the rhombus.
+  @brief Calculate the area of a regular polygon.
+  @param side The length of one side of the polygon.
+  @param nOfSides The number of sides of the polygon.
+  @return The area of the regular polygon.
 */
 
-double rhombusArea(double largerDiagonal, double smallerDiagonal)
+double regularPolygonArea(double side, int nOfSides)
 {
-  double result;
-  assert(largerDiagonal > 0 && smallerDiagonal > 0);
-  result = largerDiagonal * smallerDiagonal / 2;
+  double apothen, perimeter, result;
+  assert(side > 0 && nOfSides > 0);
+  apothen = side / (2 * tan(M_PI / nOfSides));
+  perimeter = side * nOfSides;
+  result = perimeter * apothen / 2;
   return result;
 }
 
@@ -245,9 +245,9 @@ double prismArea(double baseArea, double basePerimeter, double height)
   return result;
 }
 
-double regPrismArea(double baseSide, int nOfBaseSides, double height)
+double regularPrismArea(double baseSide, int nOfBaseSides, double height)
 {
-  double baseArea = regPolygonArea(baseSide, nOfBaseSides),
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides;
   return prismArea(baseArea, basePerimeter, height);
 }
@@ -260,9 +260,9 @@ double pyramidArea(double baseArea, double basePerimeter, double slantHeight)
   return result;
 }
 
-double regPyramidArea(double baseSide, int nOfBaseSides, double heigth)
+double regularPyramidArea(double baseSide, int nOfBaseSides, double heigth)
 {
-  double baseArea = regPolygonArea(baseSide, nOfBaseSides),
+  double baseArea = regularPolygonArea(baseSide, nOfBaseSides),
          basePerimeter = baseSide * nOfBaseSides,
          apothen = baseSide / (2 * tan(M_PI / nOfBaseSides)),
          slantHeight = hypotenuse(apothen, heigth);
