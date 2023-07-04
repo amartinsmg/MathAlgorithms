@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <math.h>
+#include "basic_operations.h"
 
 /**
   @brief Calculate the value after simple growth.
@@ -61,6 +62,6 @@ double compoundedGrowthRate(double initial, double final, double interval)
 {
   double result;
   assert(initial != 0 && interval > 0);
-  result = pow((final / initial), (1 / interval)) - 1;
+  result = nthRoot((final / initial), interval) - 1;
   return result;
 }
