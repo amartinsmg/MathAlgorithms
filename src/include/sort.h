@@ -10,8 +10,8 @@
 
 double *sort(double *arr, int length)
 {
-  double *buffer1 = (double *)malloc(sizeof(double) * length),
-         *buffer2 = (double *)malloc(sizeof(double) * length),
+  double *buffer1 = (double *)malloc(sizeof(*buffer1) * length),
+         *buffer2 = (double *)malloc(sizeof(*buffer2) * length),
          *src, *target, *left, *right, *result;
   int i, j, k, half, targetIndex, leftIndex, rightIndex, log2_length, pow2_i;
   assert(length > 0);
