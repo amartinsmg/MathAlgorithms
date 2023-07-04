@@ -1,6 +1,5 @@
 #include <assert.h>
 #include <math.h>
-#include <stdbool.h>
 #include "include/sort.h"
 #include "percentage.h"
 #include "basic_operations.h"
@@ -14,8 +13,8 @@
 
 double mean(double *arr, unsigned length)
 {
-  double sum = 0,
-         result;
+  double result,
+      sum = 0;
   unsigned i;
   assert(length > 0);
   for (i = 0; i < length; i++)
@@ -34,8 +33,9 @@ double mean(double *arr, unsigned length)
 
 double weightedMean(double **valuesWeightsPairs, unsigned length)
 {
-  double result, value, weight, sum = 0,
-                                weightSum = 0;
+  double result, value, weight,
+      sum = 0,
+      weightSum = 0;
   unsigned i;
   assert(length > 0);
   for (i = 0; i < length; i++)
@@ -77,25 +77,16 @@ double trimmedMean(double *arr, unsigned lenght, double trimmedMeanPercentage)
 
 double geometricMean(double *arr, unsigned length)
 {
-  double product = 1,
-         result;
+  double result,
+      product = 1;
   unsigned i;
-  bool noNegatives, noPositives;
   assert(length > 0);
-  i = 0;
-  do
-  {
-    noNegatives = arr[i] >= 0;
-  } while (noNegatives && ++i < length);
-  i = 0;
-  do
-  {
-    noPositives = arr[i] <= 0;
-  } while (noPositives && ++i < length);
-  assert(noNegatives || noPositives);
   for (i = 0; i < length; i++)
-    product *= abs(arr[i]);
-  result = noNegatives ? nthRoot(product, length) : -nthRoot(product, length);
+  {
+    assert(arr[i] >= 0);
+    product *= arr[i];
+  }
+  result = nthRoot(product, length);
   return result;
 }
 
@@ -108,8 +99,8 @@ double geometricMean(double *arr, unsigned length)
 
 double harmonicMean(double *arr, unsigned length)
 {
-  double sum = 0,
-         result;
+  double result,
+      sum = 0;
   unsigned i;
   assert(length > 0);
   for (i = 0; i < length; i++)
@@ -153,10 +144,10 @@ double *mode(double *arr, unsigned length, unsigned *ptrNOfModes)
 {
   double **frequency, *result, *sortedArr;
   unsigned i,
-          minFreq = __UINT32_MAX__,
-          maxFreq = 0,
-          resultLenght = 0,
-          frequencyLength = 0;
+      minFreq = __UINT32_MAX__,
+      maxFreq = 0,
+      resultLenght = 0,
+      frequencyLength = 0;
   assert(length > 0);
   result = NULL;
   sortedArr = sort(arr, length);
@@ -165,7 +156,6 @@ double *mode(double *arr, unsigned length, unsigned *ptrNOfModes)
     frequency[i] = (double *)calloc(sizeof(**frequency), 2);
   frequency[frequencyLength++][0] = sortedArr[0];
   for (i = 0; i < length; i++)
-  {
     if (sortedArr[i] == frequency[frequencyLength - 1][0])
       frequency[frequencyLength - 1][1] += 1;
     else
@@ -173,7 +163,6 @@ double *mode(double *arr, unsigned length, unsigned *ptrNOfModes)
       frequency[frequencyLength][0] = sortedArr[i];
       frequency[frequencyLength++][1] += 1;
     }
-  }
   for (i = 0; i < frequencyLength; i++)
   {
     minFreq = frequency[i][1] < minFreq ? frequency[i][1] : minFreq;
@@ -181,16 +170,12 @@ double *mode(double *arr, unsigned length, unsigned *ptrNOfModes)
   }
   *ptrNOfModes = 0;
   if (minFreq < maxFreq)
-  {
     for (i = 0; i < frequencyLength; i++)
-    {
       if (frequency[i][1] == maxFreq)
       {
         result = (double *)realloc(result, sizeof(*result) * ++(*ptrNOfModes));
         result[resultLenght++] = frequency[i][0];
       }
-    }
-  }
   return result;
 }
 
