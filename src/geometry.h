@@ -117,15 +117,15 @@ double *equationOfLine(double x1, double y1, double x2, double y2)
 /**
   @brief Calculates the distance between a point and a line.
   @param inclinationLine The inclination (slope) of the line.
-  @param c The y-intercept of the line.
-  @param x0 The x-coordinate of the point.
-  @param y0 The y-coordinate of the point.
+  @param yInterceptLine The y-intercept of the line.
+  @param xPoint The x-coordinate of the point.
+  @param yPoint The y-coordinate of the point.
   @return The distance between the point and the line.
 */
 
-double distancePointLine(double inclinationLine, double c, double x0, double y0)
+double distancePointLine(double inclinationLine, double yInterceptLine, double xPoint, double yPoint)
 {
-  double result = absf(inclinationLine * x0 - y0 + c) /
+  double result = absf(inclinationLine * xPoint - yPoint + yInterceptLine) /
                   sqrt(pow(inclinationLine, 2) + 1);
   return result;
 }
