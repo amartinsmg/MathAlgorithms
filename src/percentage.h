@@ -22,7 +22,8 @@ double nPercentOfX(double x, double n)
 
 double nIsWhatPercentOfX(double x, double n)
 {
+  double result;
   assert(x != 0);
-  double result = n / x * 100;
+  result = n / x * 100;
   return result;
 }
