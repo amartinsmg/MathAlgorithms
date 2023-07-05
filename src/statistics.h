@@ -205,7 +205,7 @@ double min(double *arr, unsigned length)
 
 double max(double *arr, unsigned length)
 {
-  double result = __DBL_MIN__;
+  double result = -__DBL_MAX__;
   unsigned i;
   assert(length > 0);
   for (i = 0; i < length; i++)
