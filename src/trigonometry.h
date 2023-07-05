@@ -1,6 +1,9 @@
 #include <assert.h>
 #include <math.h>
 
+#ifndef TRIGONOMETRY_H
+#define TRIGONOMETRY_H
+
 /**
   @brief Calculate the hypotenuse of a right triangle.
   @param sideA The length of side A of the right triangle.
@@ -23,7 +26,7 @@ double hypotenuse(double sideA, double sideB)
   @return The length of the side.
 */
 
-double sideRetTriangle(double hypotenuse, double sideA)
+double sideRightTriangle(double hypotenuse, double sideA)
 {
   double result;
   assert(sideA > 0 && hypotenuse > 0);
@@ -94,3 +97,5 @@ double angleTriangleLS(double oppositeSide, double sideA, double oppositeAngle2A
   result = asin(oppositeSide / (sideA / sin(oppositeAngle2A)));
   return result;
 }
+
+#endif /* TRIGONOMETRY_H */
