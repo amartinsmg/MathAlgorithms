@@ -4,7 +4,10 @@
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
-#endif
+#endif /* M_PI */
+
+#ifndef AREA_SAHPE_H
+#define AREA_SAHPE_H
 
 /**
   @brief Calculate the area of a triangle given the base and height.
@@ -220,3 +223,5 @@ double ellipseArea(double semiMajorAxis, double semiMinorAxis)
   result = M_PI * semiMajorAxis * semiMinorAxis;
   return result;
 }
+
+#endif /* AREA_SAHPE_H */
