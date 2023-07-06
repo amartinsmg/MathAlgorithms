@@ -1,6 +1,9 @@
 #include <assert.h>
 #include "factorial.h"
 
+#ifndef COMBINATORICS_H
+#define COMBINATORICS_H
+
 /**
   @note The functions permutation(), cyclepermutation(), arrangement()  and combination() work well for numbers <= 20, for numbers > 20
   use the functions permutationlf(), cyclepermutationlf(), arrangementlf() and combinationlf() that use double precision float to store
@@ -130,3 +133,5 @@ double combinationlf(int total, int selected)
   result = factoriallf(total) / (factoriallf(selected) * factoriallf(total - selected));
   return result;
 }
+
+#endif /* COMBINATORICS_H */
