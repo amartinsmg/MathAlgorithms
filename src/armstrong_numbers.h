@@ -1,6 +1,9 @@
 #include <stdbool.h>
 #include <math.h>
 
+#ifndef ARMSTRONG_NUMBERS_H
+#define ARMSTRONG_NUMBERS_H
+
 /**
   @brief Check if a number is an Armstrong number.
   @param num The number to be checked.
@@ -22,3 +25,5 @@ bool isArmstrong(long long num)
     return true;
   return false;
 }
+
+#endif /* ARMSTRONG_NUMBERS_H */
