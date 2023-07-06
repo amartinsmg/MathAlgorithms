@@ -1,6 +1,9 @@
 #include <assert.h>
 #include "area_shape.h"
 
+#ifndef VOLUME_H
+#define VOLUME_H
+
 /**
   @brief Calculates the volume of a cube.
   @param side The length of the cube's side.
@@ -132,3 +135,5 @@ double sphereVol(double radius)
   result = 4 * M_PI * pow(radius, 3) / 3;
   return result;
 }
+
+#endif /* VOLUME_H */
