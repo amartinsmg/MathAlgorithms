@@ -2,6 +2,9 @@
 #include <math.h>
 #include "area_shape.h"
 
+#ifndef AREA_SURFACE_H
+#define AREA_SURFACE_H
+
 /**
   @brief Calculates the surface area of a cube.
   @param side The length of the side of the cube.
@@ -139,3 +142,5 @@ double sphereArea(double radius)
   result = 4 * M_PI * pow(radius, 2);
   return result;
 }
+
+#endif /* AREA_SURFACE_H */
