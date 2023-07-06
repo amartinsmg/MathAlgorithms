@@ -1,5 +1,8 @@
 #include <stdbool.h>
 
+#ifndef PERFECT_NUMBERS_H
+#define PERFECT_NUMBERS_H
+
 /**
   @brief Checks whether the given number is a perfect number.
   @param num The number to be checked.
@@ -17,3 +20,5 @@ bool isPerfect(long long num)
     return true;
   return false;
 }
+
+#endif /* PERFECT_NUMBERS_H */
