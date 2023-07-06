@@ -2,6 +2,9 @@
 #include <math.h>
 #include "basic_operations.h"
 
+#ifndef GROWTH_H
+#define GROWTH_H
+
 /**
   @brief Calculate the value after simple growth.
   @param initial The initial value.
@@ -65,3 +68,5 @@ double compoundedGrowthRate(double initial, double final, double interval)
   result = nthRoot((final / initial), interval) - 1;
   return result;
 }
+
+#endif /* GROWTH_H */
