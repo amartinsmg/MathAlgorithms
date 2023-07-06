@@ -4,6 +4,9 @@
 #include "statistics.h"
 #include "volume.h"
 
+#ifndef GEOMETRY_H
+#define GEOMETRY_H
+
 /**
   @brief Converts degrees to radians.
   @param degrees The angle in degrees.
@@ -203,3 +206,5 @@ double convexPolygonExteriorAngle(int nOfSides)
   result = 2 * M_PI / nOfSides;
   return result;
 }
+
+#endif /* GEOMETRY_H */
