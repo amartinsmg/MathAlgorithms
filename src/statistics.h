@@ -4,6 +4,9 @@
 #include "percentage.h"
 #include "basic_operations.h"
 
+#ifndef STATISTICS_H
+#define STATISTICS_H
+
 /**
   @brief Calculate the arithmetic mean of an array of values.
   @param arr The array of values.
@@ -305,3 +308,5 @@ double sampleStandardDeviation(double *arr, unsigned length)
   double result = sqrt(sampleVariance(arr, length));
   return result;
 }
+
+#endif /* STATISTICS_H */
