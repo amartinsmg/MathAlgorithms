@@ -1,5 +1,8 @@
 #include <assert.h>
 
+#ifndef PERCENTAGE_H
+#define PERCENTAGE_H
+
 /**
   @brief Calculate n percent of x.
   @param x The value.
@@ -27,3 +30,5 @@ double nIsWhatPercentOfX(double x, double n)
   result = n / x * 100;
   return result;
 }
+
+#endif /* PERCENTAGE_H */
