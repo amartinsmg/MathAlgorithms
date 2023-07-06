@@ -2,6 +2,9 @@
 #include <math.h>
 #include "gcd.h"
 
+#ifndef LCM_H
+#define LCM_H
+
 /**
   @brief Calculate the least common multiple (LCM) of two integers.
   @param x The first integer.
@@ -17,3 +20,5 @@ long long lcm(int x, int y)
   result = abs(x * y / gcd(x, y));
   return result;
 }
+
+#endif /* LCM_H */
