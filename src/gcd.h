@@ -1,5 +1,8 @@
 #include <math.h>
 
+#ifndef GCD_H
+#define GCD_H
+
 /**
   @brief Calculate the greatest common divisor (GCD) of two integers.
   @param x The first integer.
@@ -25,3 +28,5 @@ int gcd(int x, int y)
   result = abs(y);
   return result;
 }
+
+#endif /* GCD_H */
