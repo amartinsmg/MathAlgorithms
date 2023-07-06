@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <math.h>
+#include "area_surface.h"
 #include "statistics.h"
 #include "volume.h"
 
@@ -125,7 +126,7 @@ double *equationOfLine(double x1, double y1, double x2, double y2)
 
 double distancePointLine(double inclinationLine, double yInterceptLine, double xPoint, double yPoint)
 {
-  double result = absf(inclinationLine * xPoint - yPoint + yInterceptLine) /
+  double result = fabs(inclinationLine * xPoint - yPoint + yInterceptLine) /
                   sqrt(pow(inclinationLine, 2) + 1);
   return result;
 }
