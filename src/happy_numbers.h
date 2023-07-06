@@ -1,6 +1,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+#ifndef HAPPY_NUMBERS_H
+#define HAPPY_NUMBERS_H
+
 /**
   @brief Checks whether the given number is a happy number.
   @param num The number to be checked.
@@ -33,3 +36,5 @@ bool isHappy(long long num)
     num = sum;
   }
 }
+
+#endif /* HAPPY_NUMBERS_H */
