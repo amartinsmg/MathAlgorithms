@@ -1,5 +1,5 @@
 #include <assert.h>
-#include "area_surface.h"
+#include "area_shape.h"
 
 /**
   @brief Calculates the volume of a cube.
