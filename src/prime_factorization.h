@@ -1,5 +1,8 @@
 #include <stdlib.h>
 
+#ifndef PRIME_FACTORIZATION_H
+#define PRIME_FACTORIZATION_H
+
 /**
   @brief Calculate the prime factors of a given number.
   @param num The number to calculate prime factors for.
@@ -22,3 +25,5 @@ long long *primeFactors(long long num)
       }
   return factors;
 }
+
+#endif /* PRIME_FACTORIZATION_H */
