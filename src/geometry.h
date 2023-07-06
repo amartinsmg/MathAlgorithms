@@ -159,13 +159,13 @@ int nOfDiagnonalsPolygon(int nOfSides)
 }
 
 /**
-  @brief Calculates the sum of interior angles in a regular polygon.
+  @brief Calculates the sum of interior angles in a convex polygon.
   @param nOfSides The number of sides of the polygon.
-  @return The sum of interior angles in the regular polygon, in radians.
+  @return The sum of interior angles in the convex polygon, in radians.
   @pre The number of sides must be greater than 0.
 */
 
-double regularPolygonSumInteriorAngles(double nOfSides)
+double convexPolygonSumInteriorAngles(double nOfSides)
 {
   double result;
   assert(nOfSides > 0);
@@ -185,18 +185,18 @@ double regularPolygonInteriorAngle(int nOfSides)
 {
   double result;
   assert(nOfSides > 0);
-  result = regularPolygonSumInteriorAngles(nOfSides) / nOfSides;
+  result = convexPolygonSumInteriorAngles(nOfSides) / nOfSides;
   return result;
 }
 
 /**
-  @brief Calculates the measure of each exterior angle in a regular polygon.
+  @brief Calculates the measure of each exterior angle in a convex polygon.
   @param nOfSides The number of sides of the polygon.
-  @return The measure of each exterior angle in the regular polygon, in radians.
+  @return The measure of each exterior angle in the convex polygon, in radians.
   @pre The number of sides must be greater than 0.
 */
 
-double regularPolygonExteriorAngle(int nOfSides)
+double convexPolygonExteriorAngle(int nOfSides)
 {
   double result;
   assert(nOfSides > 0);
