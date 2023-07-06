@@ -1,5 +1,8 @@
 #include <assert.h>
 
+#ifndef FACTORIAL_H
+#define FACTORIAL_H
+
 /**
   @brief Calculate the factorial of a number.
   @param num The number for which factorial is to be calculated.
@@ -35,3 +38,5 @@ double factoriallf(int num)
     result *= i;
   return result;
 }
+
+#endif /* FACTORIAL_H */
