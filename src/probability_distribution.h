@@ -2,6 +2,13 @@
 #include <math.h>
 #include "combinatorics.h"
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif /* M_PI */
+
+#ifndef PROBABILITY_DISTRIBUTION_H
+#define PROBABILITY_DISTRIBUTION_H
+
 /**
   @brief Calculate the binomial coefficient.
   @param trials The number of trials.
@@ -62,3 +69,5 @@ double gaussianCDF(double mu, double standadDev, double x)
   result = 0.5 + phi * sum;
   return result;
 }
+
+#endif /* PROBABILITY_DISTRIBUTION_H */
