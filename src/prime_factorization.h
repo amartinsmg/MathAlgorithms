@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdlib.h>
 
 #ifndef PRIME_FACTORIZATION_H
