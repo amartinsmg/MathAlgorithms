@@ -255,6 +255,10 @@ int main()
   test(185, round(radians2degrees(regularPolygonInteriorAngle(6))) == 120);
   test(186, round(radians2degrees(convexPolygonExteriorAngle(5))) == 72);
   test(187, round(radians2degrees(convexPolygonExteriorAngle(6))) == 60);
+  test(188, nOfDiagnonalsPolygon(3) == 0);
+  test(189, round(radians2degrees(convexPolygonSumInteriorAngles(3))) == 180);
+  test(190, round(radians2degrees(regularPolygonInteriorAngle(3))) == 60);
+  test(191, round(radians2degrees(convexPolygonExteriorAngle(3))) == 120);
 
   puts("Passed all tests successfully!");
 
