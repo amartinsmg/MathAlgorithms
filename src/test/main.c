@@ -259,6 +259,10 @@ int main()
   test(189, round(radians2degrees(convexPolygonSumInteriorAngles(3))) == 180);
   test(190, round(radians2degrees(regularPolygonInteriorAngle(3))) == 60);
   test(191, round(radians2degrees(convexPolygonExteriorAngle(3))) == 120);
+  test(192, arrangement(7, 0) == 1);
+  test(193, arrangementlf(7, 0) == 1);
+  test(194, roundTo(sideTriangleLC(5, 7, degrees2radians(179)), 5) == 11.99956);
+  test(195, roundTo(logarithm(1000, 10), 6) == 3);
 
   puts("Passed all tests successfully!");
 

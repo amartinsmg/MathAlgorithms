@@ -51,7 +51,7 @@ long long cyclePermutation(int num)
 long long arrangement(int total, int selected)
 {
   long long result;
-  assert(total > 0 && selected >= 0);
+  assert(total > 0 && selected >= 0 && selected <= total);
   result = factorial(total) / factorial(total - selected);
   return result;
 }
@@ -113,7 +113,7 @@ double cyclePermutationlf(int num)
 double arrangementlf(int total, int selected)
 {
   double result;
-  assert(total > 0 && selected >= 0);
+  assert(total > 0 && selected >= 0 && selected <= total);
   result = factoriallf(total) / factoriallf(total - selected);
   return result;
 }
