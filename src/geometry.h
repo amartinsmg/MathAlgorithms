@@ -79,7 +79,7 @@ double *midpointPoints(double ax, double ay, double bx, double by)
 double slopeOfLine(double x1, double y1, double x2, double y2)
 {
   double result;
-  assert(x1 != x2 || y1 != y2);
+  assert(x1 != x2);
   result = (y2 - y1) / (x2 - x1);
   return result;
 }
@@ -156,7 +156,7 @@ double circlePerimeter(double radius)
 int nOfDiagnonalsPolygon(int nOfSides)
 {
   double result;
-  assert(nOfSides > 0);
+  assert(nOfSides >= 3);
   result = nOfSides * (nOfSides - 3) / 2;
   return result;
 }
@@ -171,7 +171,7 @@ int nOfDiagnonalsPolygon(int nOfSides)
 double convexPolygonSumInteriorAngles(double nOfSides)
 {
   double result;
-  assert(nOfSides > 0);
+  assert(nOfSides >= 3);
   result = (nOfSides - 2) * M_PI;
   return result;
 }
@@ -187,7 +187,7 @@ double convexPolygonSumInteriorAngles(double nOfSides)
 double regularPolygonInteriorAngle(int nOfSides)
 {
   double result;
-  assert(nOfSides > 0);
+  assert(nOfSides >= 3);
   result = convexPolygonSumInteriorAngles(nOfSides) / nOfSides;
   return result;
 }
@@ -202,7 +202,7 @@ double regularPolygonInteriorAngle(int nOfSides)
 double convexPolygonExteriorAngle(int nOfSides)
 {
   double result;
-  assert(nOfSides > 0);
+  assert(nOfSides >= 3);
   result = 2 * M_PI / nOfSides;
   return result;
 }

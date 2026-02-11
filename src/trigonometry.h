@@ -29,7 +29,7 @@ double hypotenuse(double sideA, double sideB)
 double sideRightTriangle(double hypotenuse, double sideA)
 {
   double result;
-  assert(sideA > 0 && hypotenuse > 0);
+  assert(sideA > 0 && hypotenuse > sideA);
   result = sqrt(pow(hypotenuse, 2) - pow(sideA, 2));
   return result;
 }
