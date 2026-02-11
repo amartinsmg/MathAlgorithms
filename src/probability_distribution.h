@@ -22,7 +22,8 @@
 double binominal(int trials, double successProb, int success)
 {
   double result;
-  assert(trials > 0 && success >= 0 && successProb >= 0 && successProb <= 1);
+  assert(trials > 0 && success >= 0 && success <= trials &&
+         successProb >= 0 && successProb <= 1);
   result = combinationlf(trials, success) *
            pow(successProb, success) *
            pow((1 - successProb), (trials - success));
@@ -39,6 +40,7 @@ double binominal(int trials, double successProb, int success)
 double poisson(double lambda, unsigned x)
 {
   double result;
+  assert(lambda >= 0);
   result = exp(-lambda) * pow(lambda, x) / factoriallf(x);
   return result;
 }

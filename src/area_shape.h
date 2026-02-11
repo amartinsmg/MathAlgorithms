@@ -158,7 +158,7 @@ double trapezoidArea(double largerBase, double smallerBase, double height)
 double regularPolygonArea(double side, int nOfSides)
 {
   double apothen, perimeter, result;
-  assert(side > 0 && nOfSides > 0);
+  assert(side > 0 && nOfSides >= 3);
   apothen = side / (2 * tan(M_PI / nOfSides));
   perimeter = side * nOfSides;
   result = perimeter * apothen / 2;

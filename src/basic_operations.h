@@ -13,6 +13,7 @@
 
 double logarithm(double num, double base)
 {
+  assert(num > 0 && base > 0 && base != 1);
   double result = log(num) / log(base);
   return result;
 }
