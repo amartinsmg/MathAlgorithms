@@ -1,33 +1,37 @@
-#include <assert.h>
-
 #ifndef PERCENTAGE_H
 #define PERCENTAGE_H
 
 /**
-  @brief Calculate n percent of x.
-  @param x The value.
-  @param n The percentage.
-  @return The calculated result.
-*/
+ * @brief Calculate n percent of x.
+ *
+ * @param x The value.
+ * @param n The percentage.
+ *
+ * @return The calculated result.
+ */
 
 double nPercentOfX(double x, double n)
 {
+  if (n == 0)
+    return 0;
   double result = x / 100 * n;
   return result;
 }
 
 /**
-  @brief Calculate what percentage n is of x.
-  @param x The value.
-  @param n The value to calculate the percentage for.
-  @return The calculated percentage.
-*/
+ * @brief Calculate what percentage n is of x.
+ *
+ * @param x The value.
+ * @param n The value to calculate the percentage for.
+ *
+ * @return The calculated percentage.
+ */
 
 double nIsWhatPercentOfX(double x, double n)
 {
-  double result;
-  assert(x != 0);
-  result = n / x * 100;
+  if (x == 0)
+    return 0;
+  double result = n / x * 100;
   return result;
 }
 
