@@ -181,8 +181,8 @@ double circlePerimeter(double radius)
 int nOfDiagnonalsPolygon(int nOfSides)
 {
   if (nOfSides < 3)
-    return NAN;
-  double result;
+    return 0;
+  int result;
   result = nOfSides * (nOfSides - 3) / 2;
   return result;
 }
