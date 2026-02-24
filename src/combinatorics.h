@@ -6,17 +6,15 @@
 #include <errno.h>
 
 /**
-  @note The functions permutation(), cyclepermutation(), arrangement()  and combination() work well for numbers <= 20, for numbers > 20
-  use the functions permutationlf(), cyclepermutationlf(), arrangementlf() and combinationlf() that use double precision float to store
-  the result, allowing numbers grether than 9223372036854776000 to be represented using exponential form.
-*/
-
-/**
  * @brief Calculate the cycle permutation of a number.
  *
  * @param num The number for which cycle permutation is to be calculated.
  *
  * @return The permutation of the number.
+ *
+ * @note This function is suitable for numbers up to 20.
+ * For larger values, use permutationlf(), which returns a double-precision
+ * floating-point approximation in exponential form.
  */
 
 long long permutation(int num)
@@ -24,7 +22,7 @@ long long permutation(int num)
   if (num < 0 || num > 20)
   {
     errno = ERANGE;
-    return -1;
+    return 0;
   }
   long long result;
   result = factorial(num);
@@ -37,6 +35,10 @@ long long permutation(int num)
  * @param num The number for which cycle permutation is to be calculated.
  *
  * @return The cycle permutation of the number.
+ *
+ * @note This function is suitable for numbers up to 20.
+ * For larger values, use cyclePermutaionlf(), which returns a double-precision
+ * floating-point approximation in exponential form.
  */
 
 long long cyclePermutation(int num)
@@ -44,7 +46,7 @@ long long cyclePermutation(int num)
   if (num < 0 || num > 20)
   {
     errno = ERANGE;
-    return -1;
+    return 0;
   }
   long long result;
   result = factorial(num - 1);
@@ -58,6 +60,10 @@ long long cyclePermutation(int num)
  * @param selected The number of items to be selected.
  *
  * @return The arrangement of selecting 'selected' items from 'total' items.
+ *
+ * @note This function is suitable for numbers up to 20.
+ * For larger values, use arrangementlf(), which returns a double-precision
+ * floating-point approximation in exponential form.
  */
 
 long long arrangement(int total, int selected)
@@ -65,7 +71,7 @@ long long arrangement(int total, int selected)
   if (total <= 0 || total > 20 || selected < 0 || selected > total)
   {
     errno = ERANGE;
-    return -1;
+    return 0;
   }
   long long result;
   result = factorial(total) / factorial(total - selected);
@@ -79,6 +85,10 @@ long long arrangement(int total, int selected)
  * @param selected The number of items to be selected.
  *
  * @return The combination of selecting 'selected' items from 'total' items.
+ *
+ * @note This function is suitable for numbers up to 20.
+ * For larger values, use combinationlf(), which returns a double-precision
+ * floating-point approximation in exponential form.
  */
 
 long long combination(int total, int selected)
@@ -86,7 +96,7 @@ long long combination(int total, int selected)
   if (total <= 0 || total > 20 || selected < 0 || selected > total)
   {
     errno = ERANGE;
-    return -1;
+    return 0;
   }
   long long result;
   result = factorial(total) / (factorial(selected) * factorial(total - selected));

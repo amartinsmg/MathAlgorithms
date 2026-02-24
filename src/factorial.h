@@ -11,15 +11,18 @@
  *
  * @return The factorial of the number.
  *
- * @note This function is suitable for numbers up to 20. For numbers > 20 use the function factoriallf() that use double precision
-  float to store the result, allowing numbers grether than 9223372036854776000 to be represented using exponential form.
+ * @note This function is suitable for numbers up to 20.
+ * For larger values, use factoriallf(), which returns a double-precision
+ * floating-point approximation in exponential form.
  */
 
 long long factorial(int num)
 {
-  if (num < 0 || num > 20){
+  if (num < 0 || num > 20)
+  {
     errno = ERANGE;
-    return -1;}
+    return 0;
+  }
 
   long long result = 1;
   int i;
