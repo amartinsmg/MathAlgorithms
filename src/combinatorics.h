@@ -1,7 +1,9 @@
-#include "factorial.h"
-
 #ifndef COMBINATORICS_H
 #define COMBINATORICS_H
+
+#include "factorial.h"
+#include <math.h>
+#include <errno.h>
 
 /**
   @note The functions permutation(), cyclepermutation(), arrangement()  and combination() work well for numbers <= 20, for numbers > 20
@@ -19,8 +21,11 @@
 
 long long permutation(int num)
 {
-  if (num < 0)
-    return NAN;
+  if (num < 0 || num > 20)
+  {
+    errno = ERANGE;
+    return -1;
+  }
   long long result;
   result = factorial(num);
   return result;
@@ -36,8 +41,11 @@ long long permutation(int num)
 
 long long cyclePermutation(int num)
 {
-  if (num < 1)
-    return NAN;
+  if (num < 0 || num > 20)
+  {
+    errno = ERANGE;
+    return -1;
+  }
   long long result;
   result = factorial(num - 1);
   return result;
@@ -54,8 +62,11 @@ long long cyclePermutation(int num)
 
 long long arrangement(int total, int selected)
 {
-  if (total <= 0 || selected < 0 || selected > total)
-    return NAN;
+  if (total <= 0 || total > 20 || selected < 0 || selected > total)
+  {
+    errno = ERANGE;
+    return -1;
+  }
   long long result;
   result = factorial(total) / factorial(total - selected);
   return result;
@@ -72,8 +83,11 @@ long long arrangement(int total, int selected)
 
 long long combination(int total, int selected)
 {
-  if (total <= 0 || selected < 0 || selected > total)
-    return NAN;
+  if (total <= 0 || total > 20 || selected < 0 || selected > total)
+  {
+    errno = ERANGE;
+    return -1;
+  }
   long long result;
   result = factorial(total) / (factorial(selected) * factorial(total - selected));
   return result;
@@ -133,10 +147,10 @@ double arrangementlf(int total, int selected)
 
 /**
  * @brief Calculate the combination of selecting 'selected' items from 'total' items using double precision.
- * 
+ *
  * @param total The total number of items.
  * @param selected The number of items to be selected.
- * 
+ *
  * @return The combination of selecting 'selected' items from 'total' items (double precision).
  */
 

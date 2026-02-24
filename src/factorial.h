@@ -1,22 +1,26 @@
-#include <assert.h>
-
 #ifndef FACTORIAL_H
 #define FACTORIAL_H
 
+#include <errno.h>
+#include <math.h>
+
 /**
  * @brief Calculate the factorial of a number.
- * 
+ *
  * @param num The number for which factorial is to be calculated.
- * 
+ *
  * @return The factorial of the number.
- * 
- * @note This function is suitable for numbers up to 20. For numbers > 20 use the functions factoriallf() that use double precision
+ *
+ * @note This function is suitable for numbers up to 20. For numbers > 20 use the function factoriallf() that use double precision
   float to store the result, allowing numbers grether than 9223372036854776000 to be represented using exponential form.
  */
 
 long long factorial(int num)
 {
-  if(num < 0) return NAN;
+  if (num < 0 || num > 20){
+    errno = ERANGE;
+    return -1;}
+
   long long result = 1;
   int i;
   for (i = 1; i <= num; i++)
@@ -26,15 +30,16 @@ long long factorial(int num)
 
 /**
  * @brief Calculate the factorial of a number using double precision.
- * 
+ *
  * @param num The number for which factorial is to be calculated.
- * 
+ *
  * @return The factorial of the number.
  */
 
 double factoriallf(int num)
 {
-  if(num < 0) return NAN;
+  if (num < 0)
+    return NAN;
   double result = 1;
   int i;
   for (i = 1; i <= num; i++)
