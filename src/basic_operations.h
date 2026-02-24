@@ -1,4 +1,3 @@
-#include <assert.h>
 #include <math.h>
 
 #ifndef BASIC_OPERATIONS_H
@@ -13,7 +12,8 @@
 
 double logarithm(double num, double base)
 {
-  assert(num > 0 && base > 0 && base != 1);
+  if (num <= 0 || base <= 0 || base == 1)
+    return NAN;
   double result = log(num) / log(base);
   return result;
 }
@@ -27,8 +27,9 @@ double logarithm(double num, double base)
 
 double nthRoot(double radicand, double degree)
 {
+  if (degree == 0)
+    return NAN;
   double result;
-  assert(degree != 0);
   result = pow(radicand, (1 / degree));
   return result;
 }
