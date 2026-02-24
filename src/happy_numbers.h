@@ -1,13 +1,15 @@
-#include <stdbool.h>
-#include <stdlib.h>
-
 #ifndef HAPPY_NUMBERS_H
 #define HAPPY_NUMBERS_H
 
+#include <stdbool.h>
+#include <stdlib.h>
+
 /**
-  @brief Checks whether the given number is a happy number.
-  @param num The number to be checked.
-  @return True if the number is a happy number, false otherwise.
+ * @brief Checks whether the given number is a happy number.
+ * 
+ * @param num The number to be checked.
+ * 
+ * @return True if the number is a happy number, false otherwise.
 */
 
 bool isHappy(long long num)
@@ -27,10 +29,16 @@ bool isHappy(long long num)
       sum += remainder * remainder;
     }
     if (sum == 1)
+    {
+      free(numSet);
       return true;
+    }
     for (i = 0; i < lenNumSet; i++)
       if (numSet[i] == sum)
+      {
+        free(numSet);
         return false;
+      }
     numSet = (long long *)realloc(numSet, sizeof(*numSet) * ++lenNumSet);
     numSet[lenNumSet - 1] = sum;
     num = sum;
