@@ -1,12 +1,12 @@
-#include <math.h>
-#include "trigonometry.h"
-
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif /* M_PI */
 
 #ifndef AREA_SAHPE_H
 #define AREA_SAHPE_H
+
+#include <math.h>
+#include "trigonometry.h"
 
 /**
  * @brief Calculate the area of a triangle given the base and height.
