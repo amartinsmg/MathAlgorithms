@@ -1,7 +1,7 @@
-#include <math.h>
-
 #ifndef BASIC_OPERATIONS_H
 #define BASIC_OPERATIONS_H
+
+#include <math.h>
 
 /**
  * @brief Calculate the logarithm of a number with a given base.
