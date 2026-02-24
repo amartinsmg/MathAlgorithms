@@ -1,8 +1,8 @@
-#include <math.h>
-#include "area_shape.h"
-
 #ifndef AREA_SURFACE_H
 #define AREA_SURFACE_H
+
+#include <math.h>
+#include "area_shape.h"
 
 /**
  * @brief Calculates the surface area of a cube.
