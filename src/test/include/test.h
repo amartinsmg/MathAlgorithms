@@ -1,24 +1,36 @@
-#include <stdio.h>
-#include <assert.h>
-#include <stdbool.h>
-
 #ifndef TEST_H
 #define TEST_H
 
-/**
-  @brief Perform a test and assert the given condition.
-  This function performs a test with the specified code and checks if the given condition is true.
-  If the condition is true, the test is considered passed.
-  @param code The code of the test.
-  @param condition The condition to be tested.
-  @return None.
-*/
+#include <stdio.h>
+#include <stdbool.h>
 
-void test(int code, bool condition)
+/**
+ * @brief Execute a test and report its result.
+ *
+ * This function prints the test number and whether it passed or failed.
+ * If the condition is true, the test is considered passed and the function
+ * returns 0. Otherwise, the test is considered failed, a cleanup message
+ * is printed, and the function returns -1.
+ *
+ * @param code Identifier of the test being executed.
+ * @param condition Boolean expression representing the test condition.
+ *
+ * @return 0 if the test passed, -1 if the test failed.
+ */
+
+int test(int code, bool condition)
 {
   printf("Test #%d: ", code);
-  assert(condition);
-  printf("Passed!\n");
+  if (condition)
+  {
+    printf("Passed!\n");
+    return 0;
+  }
+  else
+  {
+    printf("Failed\nClearing memory...\n\n");
+    return -1;
+  }
 }
 
 #endif /* TEST_H */
