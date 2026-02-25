@@ -2,7 +2,7 @@
 #define LCM_H
 
 #include <errno.h>
-#include <math.h>
+#include <stdlib.h>
 #include "gcd.h"
 
 /**
@@ -18,8 +18,8 @@ long long lcm(int x, int y)
 {
   if (x == 0 || y == 0)
     return 0;
-  long long result;
-  result = abs(x * y / gcd(x, y));
+  long long product = (long long) x * (long long) y;
+  long long result = llabs(product / gcd(x, y));
   return result;
 }
 
