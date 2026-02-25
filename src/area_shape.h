@@ -2,8 +2,8 @@
 #define M_PI 3.14159265358979323846
 #endif /* M_PI */
 
-#ifndef AREA_SAHPE_H
-#define AREA_SAHPE_H
+#ifndef AREA_SHAPE_H
+#define AREA_SHAPE_H
 
 #include <math.h>
 #include "trigonometry.h"
@@ -265,4 +265,4 @@ double ellipseArea(double semiMajorAxis, double semiMinorAxis)
   return result;
 }
 
-#endif /* AREA_SAHPE_H */
+#endif /* AREA_SHAPE_H */
