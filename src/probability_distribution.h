@@ -9,13 +9,13 @@
 #include "combinatorics.h"
 
 /**
- * @brief Calculate the binomial coefficient.
+ * @brief Calculate the binomial probability mass function (PMF).
  *
  * @param trials The number of trials.
  * @param successProb The success probability.
  * @param success The number of successful outcomes.
  *
- * @return The binomial coefficient.
+ * @return The probability of exactly `success` successes in `trials` Bernoulli trials.
  */
 
 double binominal(int trials, double successProb, int success)
@@ -58,17 +58,17 @@ double poisson(double lambda, unsigned x)
  * @return The cumulative distribution function (CDF) value.
  */
 
-double gaussianCDF(double mu, double standadDev, double x)
+double gaussianCDF(double mu, double standardDev, double x)
 {
-  if (standadDev < 0)
+  if (standardDev < 0)
     return NAN;
-  if (standadDev == 0)
+  if (standardDev == 0)
     return (x < mu) ? 0.0 : 1.0;
   double phi, result, z,
       denominator = 1,
       sum = 0;
   int i;
-  z = (x - mu) / standadDev;
+  z = (x - mu) / standardDev;
   phi = exp(-pow(z, 2) / 2) / sqrt(2 * M_PI);
   for (i = 1; i <= 100; i += 2)
   {
