@@ -65,7 +65,7 @@ This command compiles the shared library (`libmathlib.so`), which can be used in
 To validate the implementation, run:
 
 ```sh
-make test
+make run-tests
 ```
 
 The test suite executes all implemented algorithms and compares their outputs against precomputed expected values. This ensures that each function behaves correctly and helps prevent regressions when making changes to the codebase.
@@ -77,13 +77,13 @@ The test suite executes all implemented algorithms and compares their outputs ag
 After building the project, the shared library will be available at:
 
 ```sh
-lib/libmathlib.so
+lib/libmath.so
 ```
 
 You can link it in your own C/C++ programs:
 
 ```sh
-gcc your_program.c -Llib -lmathlib -o your_program
+gcc your_program.c -Llib -lmath -o your_program
 ```
 
 At runtime, you may need to specify the library path:
