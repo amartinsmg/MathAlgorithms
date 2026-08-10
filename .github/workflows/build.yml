@@ -1,0 +1,57 @@
+name: Build and Package C/C++ Library
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers when seed a tag (ex: git tag v1.0.0 && git push origin v1.0.0)
+  workflow_dispatch: # Allows manual activation in Github Actions
+
+jobs:
+  build-and-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Source code checkout
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Depencies instalation
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      # 4. Project build
+      - name: Build Project
+        run: make
+
+      # 4. Tests
+      - name: test
+        run: make run-tests
+
+      # 5. Manual packaging (Binaries + Headers)
+      - name: Stage Package Files
+        run: |
+          mkdir -p package/include package/lib
+          # Copy header files (.h)
+          cp -r include/* package/include/ 2>/dev/null || true
+          # Copy library files (.a / .so)
+          cp build/*.a build/*.so package/lib/ 2>/dev/null || true
+          # Creates the compressed package .tar.gz
+          tar -czvf mathlib-linux-x64.tar.gz -C package .
+
+      # 6. Upload as an execution artifact
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mathlib-linux-x64
+          path: mathlib-linux-x64.tar.gz
+
+      # 7. Creates Release on GitHub
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: mathlib-linux-x64.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
