@@ -20,20 +20,20 @@ int main(void)
 {
   char str[100];
   int status = EXIT_FAILURE;
-  Point out,
-      a = {1, 1},
-      b = {2, 4},
-      c = {3, 7},
-      d = {5, 11},
-      e = {-1, -1},
-      f = {2, 3},
-      g = {1, 2},
-      h = {7, 11},
-      j = {-4, 1},
-      k = {5, 7},
-      p = {0};
-  std::vector<double> vecLf1 = {2, 2, 2, 2, 3, 3, 5, 11},
-                      vecLf2 = {2, 2, 3, 3, 3, 7, 73};
+  Math::Point out;
+  Math::Point a = {1, 1};
+  Math::Point b = {2, 4};
+  Math::Point c = {3, 7};
+  Math::Point d = {5, 11};
+  Math::Point e = {-1, -1};
+  Math::Point f = {2, 3};
+  Math::Point g = {1, 2};
+  Math::Point h = {7, 11};
+  Math::Point j = {-4, 1};
+  Math::Point k = {5, 7};
+  Math::Point p = {0, 0};
+  std::vector<double> vecLf1 = {2, 2, 2, 2, 3, 3, 5, 11};
+  std::vector<double> vecLf2 = {2, 2, 3, 3, 3, 7, 73};
 
   try
   {
