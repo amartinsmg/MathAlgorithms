@@ -36,7 +36,7 @@ jobs:
           # Copy header files (.h)
           cp -r include/* package/include/ 2>/dev/null || true
           # Copy library files (.a / .so)
-          cp build/*.a build/*.so package/lib/ 2>/dev/null || true
+          cp lib/*.a lib/*.so package/lib/ 2>/dev/null || true
           # Creates the compressed package .tar.gz
           tar -czvf mathlib-linux-x64.tar.gz -C package .
 
