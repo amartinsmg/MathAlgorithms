@@ -1,41 +1,112 @@
-INCLUDE_FLAGS = -Iinclude -Iinclude/utils 
-DEBUG_FLAGS = -fsanitize=address -g
+# =============================================================================
+# mathlib — Makefile
+# =============================================================================
 
-all: lib
+CC      := gcc
+CXX     := g++
+CFLAGS  := -Wall -Wextra -O2 -fPIC
+CXXFLAGS := -Wall -Wextra -O2 -fPIC -std=c++17
 
-# Library
+INCLUDE_FLAGS := -Iinclude
 
-lib: lib-compile
-	gcc -shared -o lib/libmathlib.so lib/mathlib.o 
-
-lib-compile: dir-lib
-	gcc -c -O2 -fPIC -o lib/mathlib.o $(INCLUDE_FLAGS) src/mathlib.c  
-
-# Tests
-
-test: test-c test-cpp
-
-test-c: c-bin
-	./debug/test_c
-
-test-cpp: cpp-bin
-	./debug/test_cpp
-
-c-bin: dir-debug
-	gcc -o debug/test_c $(INCLUDE_FLAGS) $(DEBUG_FLAGS) tests/test_c.c -lm
-
-cpp-bin: dir-debug
-	g++ -o debug/test_cpp $(INCLUDE_FLAGS) $(DEBUG_FLAGS) tests/test_cpp.cpp -lm
-
+# -----------------------------------------------------------------------------
 # Directories
+# -----------------------------------------------------------------------------
 
-dir-lib:
-	mkdir -p lib
+SRC_DIR   := src
+OBJ_DIR   := build
+LIB_DIR   := lib
+TEST_DIR  := tests
+DEBUG_DIR := debug
 
-dir-debug:
-	mkdir -p debug
+# -----------------------------------------------------------------------------
+# Sources and objects
+# -----------------------------------------------------------------------------
 
-# Cleanup
+C_SRCS   := $(wildcard $(SRC_DIR)/math/*.c) $(wildcard $(SRC_DIR)/utils/*.c)
+C_OBJS   := $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(C_SRCS))
 
+# -----------------------------------------------------------------------------
+# Targets
+# -----------------------------------------------------------------------------
+
+LIB_SO     := $(LIB_DIR)/libmath.so
+TEST_C     := $(DEBUG_DIR)/test_c
+TEST_CPP   := $(DEBUG_DIR)/test_cpp
+
+# -----------------------------------------------------------------------------
+# Default target
+# -----------------------------------------------------------------------------
+
+.PHONY: all
+all: $(LIB_SO)
+
+# -----------------------------------------------------------------------------
+# Shared library
+# -----------------------------------------------------------------------------
+
+$(LIB_SO): $(C_OBJS) | $(LIB_DIR)
+	$(CC) -shared -o $@ $^
+
+# -----------------------------------------------------------------------------
+# C objects
+# -----------------------------------------------------------------------------
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) $(INCLUDE_FLAGS) -c $< -o $@
+
+# -----------------------------------------------------------------------------
+# Tests
+# -----------------------------------------------------------------------------
+
+.PHONY: test
+test: $(TEST_C) $(TEST_CPP)
+
+$(TEST_C): $(TEST_DIR)/test_c.c $(LIB_SO) | $(DEBUG_DIR)
+	$(CC) $(CFLAGS) $(INCLUDE_FLAGS) -o $@ $< -L$(LIB_DIR) -lmath -lm
+
+$(TEST_CPP): $(TEST_DIR)/test_cpp.cpp $(LIB_SO) | $(DEBUG_DIR)
+	$(CXX) $(CXXFLAGS) $(INCLUDE_FLAGS) -o $@ $< -L$(LIB_DIR) -lmath -lm
+
+# -----------------------------------------------------------------------------
+# Run tests
+# -----------------------------------------------------------------------------
+
+.PHONY: run-test-c run-test-cpp run-tests
+run-test-c: $(TEST_C)
+	LD_LIBRARY_PATH=$(LIB_DIR) ./$(TEST_C)
+
+run-test-cpp: $(TEST_CPP)
+	LD_LIBRARY_PATH=$(LIB_DIR) ./$(TEST_CPP)
+
+run-tests: run-test-c run-test-cpp
+
+# -----------------------------------------------------------------------------
+# Directory creation (order-only prerequisites)
+# -----------------------------------------------------------------------------
+
+$(OBJ_DIR) $(LIB_DIR) $(DEBUG_DIR):
+	mkdir -p $@
+
+# -----------------------------------------------------------------------------
+# Clean
+# -----------------------------------------------------------------------------
+
+.PHONY: clean
 clean:
-	rm -f debug/* && rm -f lib/* 
+	rm -rf $(OBJ_DIR) $(LIB_DIR) $(DEBUG_DIR)
+
+# -----------------------------------------------------------------------------
+# Phony help
+# -----------------------------------------------------------------------------
+
+.PHONY: help
+help:
+	@echo "Targets:"
+	@echo "  all           Build the shared library (default)"
+	@echo "  test          Build the test binaries"
+	@echo "  run-tests     Build and run both tests"
+	@echo "  run-test-c    Build and run the C test"
+	@echo "  run-test-cpp  Build and run the C++ test"
+	@echo "  clean         Remove all build artifacts"
