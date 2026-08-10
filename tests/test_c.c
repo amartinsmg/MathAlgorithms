@@ -13,17 +13,14 @@
 
 int main()
 {
-  double mode,
-      arr[SIZE_OF_ARR] = {2, 4, 6, 7, 5, 3, 2, 1};
-  Vector v = math_mode(arr, SIZE_OF_ARR);
-  size_t n_of_modes = v.length;
-  mode = *(double *)v.data;
-  vector_free(&v);
+  double arr[SIZE_OF_ARR] = {2, 4, 6, 7, 5, 3, 2, 1};
+  size_t n_of_modes;
+  double* mode_result = mode(arr, SIZE_OF_ARR, &n_of_modes);
 
-  ASSERT_TRUE(math_mean(arr, SIZE_OF_ARR) == 3.75);
+  ASSERT_TRUE(mean(arr, SIZE_OF_ARR) == 3.75);
   ASSERT_TRUE(n_of_modes == 1);
-  ASSERT_TRUE(mode == 2);
-  ASSERT_TRUE(math_gcd(12, 42) == 6);
+  ASSERT_TRUE(mode_result[0] == 2);
+  ASSERT_TRUE(gcd(12, 42) == 6);
 
   printf("Sanity test passed!\n\n");
 
