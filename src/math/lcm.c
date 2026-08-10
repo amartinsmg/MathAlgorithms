@@ -1,4 +1,5 @@
 #include "internal/mathlib_c.h"
+#include <stdlib.h>
 
 long long lcm(long long x, long long y) {
   if (x == 0 || y == 0)

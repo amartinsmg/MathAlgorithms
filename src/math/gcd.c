@@ -1,4 +1,5 @@
 #include "internal/mathlib_c.h"
+#include <stdlib.h>
 
 long long gcd(long long x, long long y) {
   long long result;

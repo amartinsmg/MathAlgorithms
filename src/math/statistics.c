@@ -1,6 +1,7 @@
 #include "internal/mathlib_c.h"
 #include "utils/sort.h"
 #include "utils/vector.h"
+#include <stdlib.h>
 
 double mean(const double *arr, size_t length) {
   if (length == 0 || arr == NULL)

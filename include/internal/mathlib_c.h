@@ -5,7 +5,6 @@
 #include <math.h>
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdlib.h>
 
 /* -------------------------------------------------------------------------
  * Memory
@@ -16,7 +15,7 @@
  *
  * @param ptr Pointer to free.
  */
-static inline void freeArray(void *ptr) { free(ptr); }
+void freeArray(void *ptr); 
 
 /* -------------------------------------------------------------------------
  * Area — plane shapes
