@@ -2,6 +2,7 @@
 #define M_PI 3.14159265358979323846
 #endif /* M_PI */
 
+#include <math.h>
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
@@ -15,7 +16,7 @@
  *
  * @param ptr Pointer to free.
  */
-void freeArray(void *ptr) { free(ptr); }
+static inline void freeArray(void *ptr) { free(ptr); }
 
 /* -------------------------------------------------------------------------
  * Area — plane shapes
@@ -789,7 +790,7 @@ double binominal(int trials, double successProb, int success);
  * @param x      Observed number of events.
  * @return P(X = x).
  */
-double poisson(double lambda, unsigned x);
+double poisson(double lambda, int x);
 
 /**
  * @brief Calculate the Gaussian (normal) CDF P(X ≤ x).
