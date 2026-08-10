@@ -1,24 +1,9 @@
-#ifndef LCM_H
-#define LCM_H
+#include "internal/mathlib_c.h"
 
-#include "gcd.h"
-
-/**
- * @brief Calculate the least common multiple (LCM) of two integers.
- *
- * @param x The first integer.
- * @param y The second integer.
- *
- * @return The LCM of 'x' and 'y'.
- */
-
-static inline long long math_lcm(long long x, long long y)
-{
+long long lcm(long long x, long long y) {
   if (x == 0 || y == 0)
     return 0;
-  long long result = llabs(x / math_gcd(x, y) * y);
+  long long result = llabs(x / gcd(x, y) * y);
 
   return result;
 }
-
-#endif /* LCM_H */

@@ -1,26 +1,9 @@
-#ifndef FACTORIAL_H
-#define FACTORIAL_H
-
+#include "internal/mathlib_c.h"
 #include <errno.h>
 #include <stdio.h>
-#include <math.h>
 
-/**
- * @brief Calculate the factorial of a number.
- *
- * @param num The number for which factorial is to be calculated.
- *
- * @return The factorial of the number.
- *
- * @note This function is suitable for numbers up to 20.
- * For larger values, use math_factoriallf(), which returns a double-precision
- * floating-point approximation in exponential form.
- */
-
-static inline unsigned long long math_factorial(unsigned num)
-{
-  if (num > 20)
-  {
+unsigned long long factorial(unsigned num) {
+  if (num > 20) {
     errno = ERANGE;
     perror("Error calculating factorial");
     return 0;
@@ -33,21 +16,10 @@ static inline unsigned long long math_factorial(unsigned num)
   return result;
 }
 
-/**
- * @brief Calculate the factorial of a number using double precision.
- *
- * @param num The number for which factorial is to be calculated.
- *
- * @return The factorial of the number.
- */
-
-static inline double math_factoriallf(unsigned num)
-{
+double factoriallf(unsigned num) {
   double result = 1;
   unsigned i;
   for (i = 1; i <= num; i++)
     result *= i;
   return result;
 }
-
-#endif /* FACTORIAL_H */

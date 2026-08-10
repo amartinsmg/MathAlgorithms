@@ -1,31 +1,22 @@
-#ifndef PRIME_FACTORIZATION_H
-#define PRIME_FACTORIZATION_H
+#include "internal/mathlib_c.h"
+#include "utils/vector.h"
 
-#include "vector.h"
-
-/**
- * @brief Calculate the prime factors of a given number.
- *
- * @param num The number to calculate prime factors for.
- *
- * @return An array of prime factors.
- *
- * @note It is the caller's responsibility to free the memory allocated for the array.
- */
-
-static inline Vector math_prime_factors(long long num)
-{
+long long *primeFactors(long long num, size_t *size) {
   long long i;
+  long long *result;
   Vector factors = vector_init(sizeof(long long));
+
   while (num > 1)
     for (i = 2; i <= num; i++)
-      if (!(num % i))
-      {
+      if (!(num % i)) {
         vector_append(&factors, &i);
         num /= i;
         break;
       }
-  return factors;
-}
 
-#endif /* PRIME_FACTORIZATION_H */
+  result = vector_get_values(&factors);
+  *size = factors.length;
+  vector_free(&factors);
+
+  return result;
+}

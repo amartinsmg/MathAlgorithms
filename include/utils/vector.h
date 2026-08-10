@@ -2,8 +2,6 @@
 #define VECTOR_H
 
 #include <stddef.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
  * @brief Structure representing a dynamic vector.

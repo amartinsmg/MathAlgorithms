@@ -1,17 +1,6 @@
-#ifndef PERFECT_NUMBERS_H
-#define PERFECT_NUMBERS_H
+#include "internal/mathlib_c.h"
 
-#include <stdbool.h>
-
-/**
- * @brief Checks whether the given number is a perfect number.
- * 
- * @param num The number to be checked.
- * 
- * @return True if the number is a perfect number, false otherwise.
-*/
-
-static inline bool math_is_perfect(long long num)
+bool isPerfect(long long num)
 {
   long long sum = 0;
   int i;
@@ -23,4 +12,3 @@ static inline bool math_is_perfect(long long num)
   return false;
 }
 
-#endif /* PERFECT_NUMBERS_H */
