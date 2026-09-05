@@ -2,23 +2,30 @@
 #include <errno.h>
 #include <stdio.h>
 
-unsigned long long factorial(unsigned num) {
+long long factorial(int num) {
   if (num > 20) {
     errno = ERANGE;
     perror("Error calculating factorial");
     return 0;
   }
+  if (num < 0) {
+    errno = EINVAL;
+    perror("Error calculating factorial");
+    return 0;
+  }
 
-  unsigned long long result = 1;
-  unsigned i;
+  long long result = 1;
+  int i;
   for (i = 1; i <= num; i++)
     result *= i;
   return result;
 }
 
-double factoriallf(unsigned num) {
+double factoriallf(int num) {
+  if (num < 0)
+    return NAN;
   double result = 1;
-  unsigned i;
+  int i;
   for (i = 1; i <= num; i++)
     result *= i;
   return result;

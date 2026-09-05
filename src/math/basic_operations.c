@@ -14,7 +14,7 @@ double nthRoot(double radicand, double degree) {
   return result;
 }
 
-double roundTo(double num, unsigned decimalPlaces) {
+double roundTo(double num, int decimalPlaces) {
   double result;
   double base_10 = pow(10, decimalPlaces);
   result = round(num * base_10) / base_10;

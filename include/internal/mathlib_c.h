@@ -15,7 +15,7 @@
  *
  * @param ptr Pointer to free.
  */
-void freeArray(void *ptr); 
+void freeArray(void *ptr);
 
 /* -------------------------------------------------------------------------
  * Area — plane shapes
@@ -547,7 +547,7 @@ double nthRoot(double radicand, double degree);
  * @param decimalPlaces Number of decimal places.
  * @return Rounded number.
  */
-double roundTo(double num, unsigned decimalPlaces);
+double roundTo(double num, int decimalPlaces);
 
 /* -------------------------------------------------------------------------
  * Combinatorics
@@ -559,7 +559,7 @@ double roundTo(double num, unsigned decimalPlaces);
  * @param num Number of elements.
  * @return Number of permutations.
  */
-unsigned long long permutation(unsigned num);
+long long permutation(int num);
 
 /**
  * @brief Calculate the number of cyclic permutations of n elements ((n-1)!).
@@ -567,7 +567,7 @@ unsigned long long permutation(unsigned num);
  * @param num Number of elements.
  * @return Number of cyclic permutations.
  */
-unsigned long long cyclePermutation(unsigned num);
+long long cyclePermutation(int num);
 
 /**
  * @brief Calculate the number of arrangements (partial permutations) P(n,k).
@@ -576,7 +576,7 @@ unsigned long long cyclePermutation(unsigned num);
  * @param selected Number of selected elements (k).
  * @return Number of arrangements.
  */
-unsigned long long arrangement(unsigned total, unsigned selected);
+long long arrangement(int total, int selected);
 
 /**
  * @brief Calculate the number of combinations C(n,k).
@@ -585,7 +585,7 @@ unsigned long long arrangement(unsigned total, unsigned selected);
  * @param selected Number of selected elements (k).
  * @return Number of combinations.
  */
-unsigned long long combination(unsigned total, unsigned selected);
+long long combination(int total, int selected);
 
 /**
  * @brief Calculate the number of permutations of n elements as a double.
@@ -593,7 +593,7 @@ unsigned long long combination(unsigned total, unsigned selected);
  * @param num Number of elements.
  * @return Number of permutations.
  */
-double permutationlf(unsigned num);
+double permutationlf(int num);
 
 /**
  * @brief Calculate the number of cyclic permutations of n elements as a double.
@@ -601,7 +601,7 @@ double permutationlf(unsigned num);
  * @param num Number of elements.
  * @return Number of cyclic permutations.
  */
-double cyclePermutationlf(unsigned num);
+double cyclePermutationlf(int num);
 
 /**
  * @brief Calculate the number of arrangements P(n,k) as a double.
@@ -610,7 +610,7 @@ double cyclePermutationlf(unsigned num);
  * @param selected Number of selected elements (k).
  * @return Number of arrangements.
  */
-double arrangementlf(unsigned total, unsigned selected);
+double arrangementlf(int total, int selected);
 
 /**
  * @brief Calculate the number of combinations C(n,k) as a double.
@@ -619,7 +619,7 @@ double arrangementlf(unsigned total, unsigned selected);
  * @param selected Number of selected elements (k).
  * @return Number of combinations.
  */
-double combinationlf(unsigned total, unsigned selected);
+double combinationlf(int total, int selected);
 
 /**
  * @brief Calculate the factorial of n (n!).
@@ -627,7 +627,7 @@ double combinationlf(unsigned total, unsigned selected);
  * @param num Non-negative integer.
  * @return Factorial of num.
  */
-unsigned long long factorial(unsigned num);
+long long factorial(int num);
 
 /**
  * @brief Calculate the factorial of n as a double.
@@ -635,7 +635,7 @@ unsigned long long factorial(unsigned num);
  * @param num Non-negative integer.
  * @return Factorial of num.
  */
-double factoriallf(unsigned num);
+double factoriallf(int num);
 
 /* -------------------------------------------------------------------------
  * Number theory

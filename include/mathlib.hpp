@@ -320,7 +320,7 @@ static inline double nthRoot(double radicand, double degree)
   return internal::nthRoot(radicand, degree);
 }
 
-static inline double roundTo(double num, unsigned decimalPlaces)
+static inline double roundTo(double num, int decimalPlaces)
 {
   return internal::roundTo(num, decimalPlaces);
 }
@@ -329,52 +329,52 @@ static inline double roundTo(double num, unsigned decimalPlaces)
  * Combinatorics
  * ---------------------------------------------------------------------- */
 
-static inline unsigned long long permutation(unsigned num)
+static inline long long permutation(int num)
 {
   return internal::permutation(num);
 }
 
-static inline unsigned long long cyclePermutation(unsigned num)
+static inline long long cyclePermutation(int num)
 {
   return internal::cyclePermutation(num);
 }
 
-static inline unsigned long long arrangement(unsigned total, unsigned selected)
+static inline long long arrangement(int total, int selected)
 {
   return internal::arrangement(total, selected);
 }
 
-static inline unsigned long long combination(unsigned total, unsigned selected)
+static inline long long combination(int total, int selected)
 {
   return internal::combination(total, selected);
 }
 
-static inline double permutationlf(unsigned num)
+static inline double permutationlf(int num)
 {
   return internal::permutationlf(num);
 }
 
-static inline double cyclePermutationlf(unsigned num)
+static inline double cyclePermutationlf(int num)
 {
   return internal::cyclePermutationlf(num);
 }
 
-static inline double arrangementlf(unsigned total, unsigned selected)
+static inline double arrangementlf(int total, int selected)
 {
   return internal::arrangementlf(total, selected);
 }
 
-static inline double combinationlf(unsigned total, unsigned selected)
+static inline double combinationlf(int total, int selected)
 {
   return internal::combinationlf(total, selected);
 }
 
-static inline unsigned long long factorial(unsigned num)
+static inline long long factorial(int num)
 {
   return internal::factorial(num);
 }
 
-static inline double factoriallf(unsigned num)
+static inline double factoriallf(int num)
 {
   return internal::factoriallf(num);
 }
@@ -469,7 +469,7 @@ static inline double binominal(int trials, double successProb, int success)
   return internal::binominal(trials, successProb, success);
 }
 
-static inline double poisson(double lambda, unsigned x)
+static inline double poisson(double lambda, int x)
 {
   return internal::poisson(lambda, x);
 }

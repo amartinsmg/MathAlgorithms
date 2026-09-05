@@ -2,64 +2,64 @@
 #include <errno.h>
 #include <stdio.h>
 
-unsigned long long permutation(unsigned num) {
-  unsigned long long result;
+long long permutation(int num) {
+  long long result;
   result = factorial(num);
   return result;
 }
 
-unsigned long long cyclePermutation(unsigned num) {
+long long cyclePermutation(int num) {
   if (num <= 1)
     return 1;
-  unsigned long long result;
+  long long result;
   result = factorial(num - 1);
   return result;
 }
 
-unsigned long long arrangement(unsigned total, unsigned selected) {
-  if (total == 0 || selected > total) {
+long long arrangement(int total, int selected) {
+  if (total <= 0 || selected > total) {
     errno = EDOM;
     perror("Error calculating arrangement");
     return 0;
   }
-  unsigned long long result;
+  long long result;
   result = factorial(total) / factorial(total - selected);
   return result;
 }
 
-unsigned long long combination(unsigned total, unsigned selected) {
-  if (total == 0 || selected > total) {
+long long combination(int total, int selected) {
+  if (total <= 0 || selected > total) {
     errno = EDOM;
     perror("Error calculating combination");
     return 0;
   }
-  unsigned long long result;
+  long long result;
   result =
       factorial(total) / (factorial(selected) * factorial(total - selected));
   return result;
 }
 
-double permutationlf(unsigned num) {
+double permutationlf(int num) {
   double result = factoriallf(num);
   return result;
 }
 
-double cyclePermutationlf(unsigned num) {
-  if (num <= 1)
+double cyclePermutationlf(int num) {
+  if (num == 1 || num == 0)
     return 1;
   double result = factoriallf(num - 1);
   return result;
 }
 
-double arrangementlf(unsigned total, unsigned selected) {
-  if (total == 0 || selected > total)
+double arrangementlf(int total, int selected) {
+  if (total <= 0 || selected > total)
     return NAN;
   double result = factoriallf(total) / factoriallf(total - selected);
   return result;
 }
 
-double combinationlf(unsigned total, unsigned selected) {
-  if (total == 0 || selected > total)
+double combinationlf(int total, int selected) {
+  if (total <= 0 || selected > total)
     return NAN;
   double result = factoriallf(total) /
                   (factoriallf(selected) * factoriallf(total - selected));
