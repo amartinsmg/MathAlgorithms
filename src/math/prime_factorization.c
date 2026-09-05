@@ -9,12 +9,16 @@ long long *primeFactors(long long num, size_t *size) {
   while (num > 1)
     for (i = 2; i <= num; i++)
       if (!(num % i)) {
-        vector_append(&factors, &i);
+        if (vector_append(&factors, &i) != 0){
+          vector_free(&factors);
+          *size = 0;
+          return NULL;
+        }
         num /= i;
         break;
       }
 
-  result = vector_get_values(&factors);
+  result = (long long *)vector_get_values(&factors);
   *size = factors.length;
   vector_free(&factors);
 

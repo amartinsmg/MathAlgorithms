@@ -42,7 +42,8 @@ int set_add_value(Set *set, void *value) {
 }
 
 void set_free(Set *set) {
-  free(set->data);
+  if (set->data)
+    free(set->data);
   set->length = 0;
   set->capacity = 0;
 }

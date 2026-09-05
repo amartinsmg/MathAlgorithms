@@ -9,6 +9,15 @@ double *sort(const double *arr, size_t length) {
 
   double *buffer_1 = (double *)malloc(sizeof(*buffer_1) * length);
   double *buffer_2 = (double *)malloc(sizeof(*buffer_2) * length);
+
+  if (buffer_1 == NULL || buffer_2 == NULL) {
+    if (buffer_1)
+      free(buffer_1);
+    if (buffer_2)
+      free(buffer_2);
+    return NULL;
+  }
+
   double *src;
   double *target;
   double *left;

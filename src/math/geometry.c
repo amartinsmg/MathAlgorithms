@@ -17,11 +17,14 @@ double distancePoints(double aX, double aY, double bX, double bY) {
 }
 
 double *midpoint(double aX, double aY, double bX, double bY) {
-  double *result = malloc(2 * sizeof(double));
-  double x[2] = {aX, bX};
-  double y[2] = {aY, bY};
-  result[0] = mean(x, 2);
-  result[1] = mean(y, 2);
+  double *result = (double *)malloc(2 * sizeof(double));
+  if (result != NULL) {
+    double x[2] = {aX, bX};
+    double y[2] = {aY, bY};
+    result[0] = mean(x, 2);
+    result[1] = mean(y, 2);
+  }
+
   return result;
 }
 
@@ -46,8 +49,8 @@ double lineYIntercept(double aX, double aY, double bX, double bY) {
 
 double distancePointLine(double inclination, double yIntercept, double pX,
                          double pY) {
-  double result =
-      fabs((inclination * pX) - pY + yIntercept) / sqrt(pow(inclination, 2) + 1);
+  double result = fabs((inclination * pX) - pY + yIntercept) /
+                  sqrt(pow(inclination, 2) + 1);
   return result;
 }
 

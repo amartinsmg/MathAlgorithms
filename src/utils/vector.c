@@ -29,7 +29,8 @@ int vector_append(Vector *v, void *value) {
 }
 
 void vector_free(Vector *v) {
-  free(v->data);
+  if (v->data)
+    free(v->data);
   v->length = 0;
   v->capacity = 0;
 }

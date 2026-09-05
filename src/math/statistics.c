@@ -81,7 +81,7 @@ double median(const double *arr, size_t length) {
   double result;
   double *sorted_arr = sort(arr, length);
 
-  if (length % 2)
+  if (length % 2 != 0)
     result = sorted_arr[length / 2];
   else
     result = (sorted_arr[(length / 2) - 1] + sorted_arr[length / 2]) / 2;
@@ -110,40 +110,56 @@ double *mode(const double *arr, size_t length, size_t *size) {
 
   double *sorted_arr = sort(arr, length);
   Freq *frequencies = (Freq *)malloc(sizeof(*frequencies) * length);
-  size_t i;
-  size_t min_freq = __UINT32_MAX__;
-  size_t max_freq = 0;
-  size_t freq_len = 0;
 
-  frequencies[0].value = sorted_arr[0];
-  frequencies[0].frequency = 1;
-  freq_len++;
+  if (sorted_arr != NULL && frequencies != NULL) {
+    size_t i;
+    size_t min_freq = __UINT32_MAX__;
+    size_t max_freq = 0;
+    size_t freq_len = 0;
+    int status = 0;
 
-  for (i = 1; i < length; i++)
-    if (sorted_arr[i] == frequencies[freq_len - 1].value)
-      frequencies[freq_len - 1].frequency++;
-    else {
-      frequencies[freq_len].value = sorted_arr[i];
-      frequencies[freq_len++].frequency = 1;
+    frequencies[0].value = sorted_arr[0];
+    frequencies[0].frequency = 1;
+    freq_len++;
+
+    for (i = 1; i < length; i++)
+      if (sorted_arr[i] == frequencies[freq_len - 1].value)
+        frequencies[freq_len - 1].frequency++;
+      else {
+        frequencies[freq_len].value = sorted_arr[i];
+        frequencies[freq_len++].frequency = 1;
+      }
+
+    for (i = 0; i < freq_len; i++) {
+      min_freq = frequencies[i].frequency < min_freq ? frequencies[i].frequency
+                                                     : min_freq;
+      max_freq = frequencies[i].frequency > max_freq ? frequencies[i].frequency
+                                                     : max_freq;
     }
-  free(sorted_arr);
 
-  for (i = 0; i < freq_len; i++) {
-    min_freq = frequencies[i].frequency < min_freq ? frequencies[i].frequency
-                                                   : min_freq;
-    max_freq = frequencies[i].frequency > max_freq ? frequencies[i].frequency
-                                                   : max_freq;
+    if (max_freq > min_freq)
+      for (i = 0; i < freq_len; i++) {
+        if (frequencies[i].frequency == max_freq)
+          if (vector_append(&modes, &frequencies[i].value) != 0) {
+            status = -1;
+            break;
+          }
+      }
+
+    if (status == 0) {
+      result = (double *)vector_get_values(&modes);
+      *size = modes.length;
+    }else {
+      *size = 0;
+    }
   }
 
-  if (max_freq > min_freq)
-    for (i = 0; i < freq_len; i++)
-      if (frequencies[i].frequency == max_freq)
-        vector_append(&modes, &frequencies[i].value);
+  if (sorted_arr != NULL)
+    free(sorted_arr);
 
-  free(frequencies);
+  if (frequencies != NULL)
+    free(frequencies);
 
-  result = vector_get_values(&modes);
-  *size = modes.length;
   vector_free(&modes);
 
   return result;
